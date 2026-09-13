@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* ---- Color tokens ---- */
+  --color-ivory: #F6F1E7;
+  --color-cream: #FBF8F1;
+  --color-wine: #5C1220;
+  --color-wine-dark: #33090F;
+  --color-wine-soft: #7A2233;
+  --color-gold: #B8863B;
+  --color-gold-light: #D9B876;
+  --color-gold-pale: #EADCB8;
+  --color-charcoal: #241F1A;
+  --color-brown: #6B4A34;
+
+  /* ---- Font tokens ---- */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --animate-marquee: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background-color: var(--color-gold-pale);
+  color: var(--color-wine-dark);
+}
+
+/* Zari border motif -- the site's signature decorative rule, echoing the
+   woven gold (zari) borders found on the pallu/anchal of a pattu langa. */
+.zari-rule {
+  position: relative;
+  height: 10px;
+  width: 100%;
+  background-image:
+    linear-gradient(var(--color-gold) 1px, transparent 1px),
+    linear-gradient(var(--color-gold) 1px, transparent 1px);
+  background-position: top, bottom;
+  background-size: 100% 1px, 100% 1px;
+  background-repeat: no-repeat;
+}
+
+.zari-rule::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-gold) 0px,
+    var(--color-gold) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+  opacity: 0.55;
+  mask-image: linear-gradient(to bottom, transparent 3px, black 3px, black 7px, transparent 7px);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
