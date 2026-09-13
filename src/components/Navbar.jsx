@@ -1,35 +1,33 @@
-// components/Navbar.jsx
-
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BRAND_NAME, BRAND_TAGLINE, getWhatsAppLink } from "../config/site";
 import { ZariDivider } from "./Decorative";
+
+const NAV_ITEMS = [
+  { label: "Collection", to: "/collection" },
+  { label: "Wholesale (B2B)", to: "/b2b" },
+  { label: "Shop (B2C)", to: "/b2c" },
+  { label: "Contact", to: "/contact" },
+];
 
 export default function Navbar({ variant = "dark" }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   const isLight = variant === "light";
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
-
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
-
     window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-
     return () => {
       document.body.style.overflow = "";
     };
@@ -40,48 +38,18 @@ export default function Navbar({ variant = "dark" }) {
     window.scrollTo(0, 0);
   };
 
-  /*
-   * BRAND COLORS
-   *
-   * Light variant:
-   * Black/dark text before scrolling
-   *
-   * Dark variant:
-   * Cream text before scrolling
-   */
   const brandColor =
     isLight || scrolled || menuOpen ? "text-charcoal" : "text-cream";
-
   const taglineColor =
     isLight || scrolled || menuOpen ? "text-charcoal/70" : "text-cream/70";
-
-  /*
-   * DESKTOP NAVIGATION COLORS
-   */
   const navColor =
     isLight || scrolled
       ? "text-charcoal hover:text-wine"
       : "text-cream hover:text-gold-light";
-
-  /*
-   * WHATSAPP BUTTON
-   */
   const buttonColor =
     isLight || scrolled
       ? "bg-wine text-cream border-wine hover:bg-wine-dark"
       : "bg-transparent text-cream border-cream/60 hover:bg-cream/10";
-
-  /*
-   * HEADER BACKGROUND
-   *
-   * Scrolled / light variant: solid cream bar, safe against any content.
-   * Dark variant before scrolling: NOT fully transparent. A soft scrim
-   * sits behind the cream text at all times so the navbar stays legible
-   * even if the page underneath turns out to be light (e.g. a page that
-   * forgets to pass variant="light"). On an actual dark hero image the
-   * scrim is barely noticeable; it's a safety net, not a visual choice
-   * you need to design around.
-   */
   const headerBg =
     scrolled || isLight
       ? "bg-cream shadow-[0_1px_0_0_rgba(184,134,59,0.25)]"
@@ -95,9 +63,7 @@ export default function Navbar({ variant = "dark" }) {
         className="mx-auto max-w-7xl px-5 sm:px-8 flex items-center justify-between h-20 lg:h-24"
         aria-label="Primary"
       >
-        {/* =========================
-            BRAND
-        ========================== */}
+        {/* BRAND */}
         <Link
           to="/"
           onClick={handleNavClick}
@@ -109,7 +75,6 @@ export default function Navbar({ variant = "dark" }) {
           >
             {BRAND_NAME}
           </span>
-
           <span
             className={`hidden sm:block font-body text-[10px] tracking-[0.3em] uppercase mt-1 transition-colors ${taglineColor}`}
           >
@@ -117,47 +82,25 @@ export default function Navbar({ variant = "dark" }) {
           </span>
         </Link>
 
-        {/* =========================
-            DESKTOP NAVIGATION
-        ========================== */}
-        <ul className="hidden lg:flex items-center gap-9">
-          {/* Manufacturing */}
-          <li>
-            <Link
-              to="/manufacturing"
-              onClick={handleNavClick}
-              className={`font-body text-sm font-medium tracking-wide transition-colors story-link ${navColor}`}
-            >
-              Manufacturing
-            </Link>
-          </li>
-
-          {/* Collection */}
-          <li>
-            <Link
-              to="/collection"
-              onClick={handleNavClick}
-              className={`font-body text-sm font-medium tracking-wide transition-colors story-link ${navColor}`}
-            >
-              Collection
-            </Link>
-          </li>
-
-          {/* Contact */}
-          <li>
-            <Link
-              to="/contact"
-              onClick={handleNavClick}
-              className={`font-body text-sm font-medium tracking-wide transition-colors story-link ${navColor}`}
-            >
-              Contact
-            </Link>
-          </li>
+        {/* DESKTOP NAV */}
+        <ul className="hidden lg:flex items-center gap-7">
+          {NAV_ITEMS.map((item) => {
+            const isActive = location.pathname === item.to;
+            return (
+              <li key={item.to}>
+                <Link
+                  to={item.to}
+                  onClick={handleNavClick}
+                  className={`font-body text-sm font-medium tracking-wide transition-colors story-link ${navColor} ${isActive ? "border-b border-current pb-0.5" : ""}`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
-        {/* =========================
-            DESKTOP WHATSAPP CTA
-        ========================== */}
+        {/* DESKTOP CTA */}
         <div className="hidden lg:block">
           <a
             href={getWhatsAppLink(
@@ -171,15 +114,11 @@ export default function Navbar({ variant = "dark" }) {
           </a>
         </div>
 
-        {/* =========================
-            MOBILE MENU BUTTON
-        ========================== */}
+        {/* MOBILE MENU BTN */}
         <button
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
-          className={`lg:hidden p-2 -mr-2 rounded-sm ${
-            isLight || scrolled || menuOpen ? "text-wine" : "text-cream"
-          }`}
+          className={`lg:hidden p-2 -mr-2 rounded-sm ${isLight || scrolled || menuOpen ? "text-wine" : "text-cream"}`}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
@@ -187,79 +126,34 @@ export default function Navbar({ variant = "dark" }) {
         </button>
       </nav>
 
-      {/* =========================
-          MOBILE NAVIGATION
-      ========================== */}
+      {/* MOBILE NAV */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{
-              duration: 0.35,
-              ease: [0.65, 0, 0.35, 1],
-            }}
+            transition={{ duration: 0.35, ease: [0.65, 0, 0.35, 1] }}
             className="lg:hidden bg-cream overflow-hidden"
           >
             <ZariDivider />
-
             <ul className="flex flex-col px-6 py-6 gap-1">
-              {/* Manufacturing */}
-              <motion.li
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: 0.05,
-                  duration: 0.35,
-                }}
-              >
-                <Link
-                  to="/manufacturing"
-                  onClick={handleNavClick}
-                  className="block py-3.5 font-display text-2xl text-charcoal hover:text-wine border-b border-gold-pale/60"
+              {NAV_ITEMS.map((item, i) => (
+                <motion.li
+                  key={item.to}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05, duration: 0.35 }}
                 >
-                  Manufacturing
-                </Link>
-              </motion.li>
-
-              {/* Collection */}
-              <motion.li
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: 0.1,
-                  duration: 0.35,
-                }}
-              >
-                <Link
-                  to="/collection"
-                  onClick={handleNavClick}
-                  className="block py-3.5 font-display text-2xl text-charcoal hover:text-wine border-b border-gold-pale/60"
-                >
-                  Collection
-                </Link>
-              </motion.li>
-
-              {/* Contact */}
-              <motion.li
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: 0.15,
-                  duration: 0.35,
-                }}
-              >
-                <Link
-                  to="/contact"
-                  onClick={handleNavClick}
-                  className="block py-3.5 font-display text-2xl text-charcoal hover:text-wine border-b border-gold-pale/60"
-                >
-                  Contact
-                </Link>
-              </motion.li>
-
-              {/* Mobile WhatsApp CTA */}
+                  <Link
+                    to={item.to}
+                    onClick={handleNavClick}
+                    className="block py-3.5 font-display text-2xl text-charcoal hover:text-wine border-b border-gold-pale/60"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.li>
+              ))}
               <li className="pt-6">
                 <a
                   href={getWhatsAppLink(

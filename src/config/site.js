@@ -1,8 +1,5 @@
 // ---------------------------------------------------------------------------
 // SITE CONFIGURATION
-// Central place for brand, contact and business details.
-// Replace every YOUR_* placeholder with real information before launch.
-// Nothing here has been invented on your behalf — see build notes.
 // ---------------------------------------------------------------------------
 
 export const BRAND_NAME = "Pattu Pavadai";
@@ -37,10 +34,53 @@ export const RETAIL_COUNTER = {
 };
 
 export const NAV_LINKS = [
-  // { label: "Home", href: "#home" },
   { label: "Collections", href: "#collections" },
   { label: "Global Supply", href: "#global-supply" },
   { label: "Our Manufacturing", href: "#manufacturing" },
-  // { label: "Retail Counter", href: "#retail-counter" },
-  // { label: "Contact", href: "#contact" },
+];
+
+// B2B pricing tiers — update these before launch
+export const B2B_TIERS = [
+  {
+    label: "Starter",
+    minQty: 10,
+    maxQty: 49,
+    priceRange: "₹450 – ₹650",
+    perPiece: true,
+    description:
+      "Ideal for new boutiques and home-based sellers getting started.",
+    highlights: [
+      "Mix of styles allowed",
+      "Standard dispatch in 5–7 days",
+      "WhatsApp support",
+    ],
+  },
+  {
+    label: "Wholesale",
+    minQty: 50,
+    maxQty: 199,
+    priceRange: "₹380 – ₹550",
+    perPiece: true,
+    description: "Best fit for established boutiques and growing resellers.",
+    highlights: [
+      "Priority dispatch in 3–5 days",
+      "Dedicated account contact",
+      "Mix colours & sizes",
+    ],
+    popular: true,
+  },
+  {
+    label: "Bulk / Export",
+    minQty: 200,
+    maxQty: null,
+    priceRange: "Custom Quote",
+    perPiece: false,
+    description:
+      "For large reseller networks, exporters and overseas distributors.",
+    highlights: [
+      "Custom packaging available",
+      "Export documentation support",
+      "Flexible payment terms",
+    ],
+  },
 ];

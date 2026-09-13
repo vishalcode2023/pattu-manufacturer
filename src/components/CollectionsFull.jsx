@@ -1,24 +1,52 @@
 // components/CollectionsFull.jsx
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+
 import { IMAGES } from "../config/images";
 import { COLLECTIONS } from "../data/content";
+import { getWhatsAppLink } from "../config/site";
+
 import { SectionHeading } from "./Decorative";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import RegionalNames from "./RegionalNames";
 
 export default function CollectionsFull() {
+  // Track items added to order
+  const [orderedItems, setOrderedItems] = useState({});
+
+  // Add collection to order and open WhatsApp
+  const handleToggleOrder = (item) => {
+    const message = `Hi, I am interested in bulk ordering "${item.title}". Please share the available designs, colours, sizes, minimum order quantity, and pricing details.`;
+
+    // Open WhatsApp
+    window.open(
+      getWhatsAppLink(message),
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+    // Update button state
+    setOrderedItems((prev) => ({
+      ...prev,
+      [item.key]: true,
+    }));
+  };
+
   return (
     <>
       <div className="relative bg-ivory">
         <Navbar variant="light" />
 
+        <RegionalNames />
+
         <section
           id="collections-full"
           className="relative bg-ivory py-24 sm:py-32 overflow-hidden"
         >
-          {/* Ambient glow, consistent with the rest of the site */}
+          {/* Ambient glow */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute top-24 left-[-10%] w-[520px] h-[520px] rounded-full bg-gold-light/20 blur-[130px]"
@@ -34,15 +62,23 @@ export default function CollectionsFull() {
             <div className="mt-16 divide-y divide-charcoal/10">
               {COLLECTIONS.map((item, i) => {
                 const image = IMAGES.collections[item.key];
+
                 const flip = i % 2 === 1;
-                const isVideo = /\.(mp4|webm|mov)$/i.test(image?.src || "");
+
+                const isVideo =
+                  /\.(mp4|webm|mov)$/i.test(image?.src || "");
+
+                const isOrdered = Boolean(orderedItems[item.key]);
 
                 return (
                   <motion.article
                     key={item.key}
                     initial={{ opacity: 0, y: 32 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{
+                      once: true,
+                      margin: "-100px",
+                    }}
                     transition={{
                       duration: 0.7,
                       ease: [0.16, 1, 0.3, 1],
@@ -92,12 +128,61 @@ export default function CollectionsFull() {
                         {item.description}
                       </p>
 
-                      <Link
-                        to="/contact"
-                        className="mt-6 inline-block font-body text-sm font-semibold tracking-wide text-wine border-b border-wine/40 hover:border-wine pb-0.5 transition-colors"
-                      >
-                        Enquire for bulk supply
-                      </Link>
+                      {/* Action Buttons */}
+                      <div className="mt-8 flex flex-wrap items-center gap-4">
+                        {/* Add to Bulk Order */}
+                        <button
+                          type="button"
+                          onClick={() => handleToggleOrder(item)}
+                          className={`px-6 py-3 rounded-xs font-body text-sm font-semibold tracking-wide transition-all duration-300 shadow-sm flex items-center gap-2 ${
+                            isOrdered
+                              ? "bg-emerald-800 text-white hover:bg-emerald-900"
+                              : "bg-wine text-ivory hover:bg-wine/90 active:scale-95"
+                          }`}
+                        >
+                          {isOrdered ? (
+                            <>
+                              {/* Check Icon */}
+                              <svg
+                                className="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+
+                              <span>Added to Order</span>
+                            </>
+                          ) : (
+                            <>
+                              {/* Plus Icon */}
+                              <svg
+                                className="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M12 4v16m8-8H4"
+                                />
+                              </svg>
+
+                              <span>Add to Bulk Order</span>
+                            </>
+                          )}
+                        </button>
+
+                        
+                      </div>
                     </div>
                   </motion.article>
                 );

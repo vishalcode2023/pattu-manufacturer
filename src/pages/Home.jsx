@@ -18,8 +18,8 @@ export default function Home() {
     <main id="main-content">
       <Navbar />
       <HeroSection />
-      <BrandIntro/>
       <RegionalNames />
+      <BrandIntro />
       <ProductCategories />
       <ManufacturingSection />
       <CraftsmanshipSection />

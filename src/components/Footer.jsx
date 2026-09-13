@@ -1,5 +1,6 @@
 import { Mail, Phone } from "lucide-react";
-import { BRAND_NAME, CONTACT, RETAIL_COUNTER, NAV_LINKS } from "../config/site";
+import { Link } from "react-router-dom";
+import { BRAND_NAME, CONTACT, RETAIL_COUNTER } from "../config/site";
 import { ZariDivider, InstagramGlyph } from "./Decorative";
 
 const MANUFACTURING_LINKS = [
@@ -9,31 +10,25 @@ const MANUFACTURING_LINKS = [
   "Uddalanga",
 ];
 
-const BUSINESS_LINKS = ["Wholesale", "Resellers", "Boutiques", "Global Supply"];
-
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-charcoal text-cream/70">
-      {/* Decorative divider */}
       <ZariDivider />
 
-      {/* Main Footer */}
       <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
         {/* Brand */}
         <div className="lg:col-span-2">
-          <span className="font-display text-3xl text-cream">{BRAND_NAME}</span>
-
+          <Link to="/" className="font-display text-3xl text-cream">
+            {BRAND_NAME}
+          </Link>
           <p className="mt-4 font-body text-sm leading-relaxed max-w-xs">
             Manufacturer of Pattu Pavada, Pattu Langa, Langa Blouse and South
             Indian traditional girls&rsquo; ethnic wear, supplying India and
             global markets.
           </p>
-
-          {/* Social / Contact Icons */}
           <div className="mt-6 flex items-center gap-4">
-            {/* Instagram */}
             <a
               href={CONTACT.instagramUrl}
               target="_blank"
@@ -43,8 +38,6 @@ export default function Footer() {
             >
               <InstagramGlyph size={17} />
             </a>
-
-            {/* Email */}
             <a
               href={`mailto:${CONTACT.email}`}
               aria-label="Email us"
@@ -52,8 +45,6 @@ export default function Footer() {
             >
               <Mail size={17} />
             </a>
-
-            {/* Phone */}
             <a
               href={`tel:${CONTACT.phone}`}
               aria-label="Call us"
@@ -69,7 +60,6 @@ export default function Footer() {
           <h3 className="font-body text-xs uppercase tracking-[0.2em] text-gold-light mb-5">
             Manufacturing
           </h3>
-
           <ul className="space-y-3 font-body text-sm">
             {MANUFACTURING_LINKS.map((item) => (
               <li key={item}>
@@ -89,18 +79,33 @@ export default function Footer() {
           <h3 className="font-body text-xs uppercase tracking-[0.2em] text-gold-light mb-5">
             Business
           </h3>
-
           <ul className="space-y-3 font-body text-sm">
-            {BUSINESS_LINKS.map((item) => (
-              <li key={item}>
-                <a
-                  href="#business-customers"
-                  className="hover:text-cream transition-colors"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
+            <li>
+              <Link to="/b2b" className="hover:text-cream transition-colors">
+                Wholesale (B2B)
+              </Link>
+            </li>
+            <li>
+              <Link to="/b2c" className="hover:text-cream transition-colors">
+                Shop Direct (B2C)
+              </Link>
+            </li>
+            <li>
+              <a
+                href="#global-supply"
+                className="hover:text-cream transition-colors"
+              >
+                Global Supply
+              </a>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="hover:text-cream transition-colors"
+              >
+                Contact Us
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -109,7 +114,6 @@ export default function Footer() {
           <h3 className="font-body text-xs uppercase tracking-[0.2em] text-gold-light mb-5">
             Retail
           </h3>
-
           <address className="not-italic font-body text-sm leading-relaxed">
             {RETAIL_COUNTER.name}
             <br />
@@ -118,29 +122,32 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Footer */}
+      {/* Bottom */}
       <div className="border-t border-cream/10">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 py-6 flex flex-col lg:flex-row items-center justify-between gap-4 font-body text-xs text-cream/50">
-          {/* Copyright */}
           <p className="text-center lg:text-left">
             © {year} {BRAND_NAME}. All rights reserved.
           </p>
-
-          {/* Navigation */}
           <ul className="flex flex-wrap items-center justify-center gap-5 sm:gap-6">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="hover:text-cream transition-colors"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            <li>
+              <Link to="/b2b" className="hover:text-cream transition-colors">
+                Wholesale
+              </Link>
+            </li>
+            <li>
+              <Link to="/b2c" className="hover:text-cream transition-colors">
+                Shop Direct
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/collection"
+                className="hover:text-cream transition-colors"
+              >
+                Collections
+              </Link>
+            </li>
           </ul>
-
-          {/* Developer Credit */}
           <p className="text-center lg:text-right">
             Developed by{" "}
             <a
