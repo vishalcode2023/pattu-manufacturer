@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+/* =========================================================
+   LOCAL FONTS
+   ========================================================= */
+
+@font-face {
+  font-family: "Noto Sans Display";
+  src: url("./fonts/Noto_Sans_Display/static/NotoSansDisplay-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Display";
+  src: url("./fonts/Noto_Sans_Display/static/NotoSansDisplay-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Display";
+  src: url("./fonts/Noto_Sans_Display/static/NotoSansDisplay-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Display";
+  src: url("./fonts/Noto_Sans_Display/static/NotoSansDisplay-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./fonts/Roboto/static/Roboto-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./fonts/Roboto/static/Roboto-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./fonts/Roboto/static/Roboto-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =========================================================
+   THEME
+   ========================================================= */
+
+@theme {
+  /* ---- Color tokens ---- */
+
+  --color-ivory: #F6F1E7;
+  --color-cream: #FBF8F1;
+
+  --color-wine: #5C1220;
+  --color-wine-dark: #33090F;
+  --color-wine-soft: #7A2233;
+
+  --color-gold: #B8863B;
+  --color-gold-light: #D9B876;
+  --color-gold-pale: #EADCB8;
+
+  --color-charcoal: #241F1A;
+  --color-brown: #6B4A34;
+
+
+  /* ---- Font tokens ---- */
+
+  --font-display: "Noto Sans Display", sans-serif;
+  --font-body: "Roboto", sans-serif;
+
+
+  /* ---- Animations ---- */
+
+  --animate-marquee: marquee 32s linear infinite;
+}
+
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================================================
+   HTML / BODY
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+}
+
+#root {
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+   ========================================================= */
+
+::selection {
+  background-color: var(--color-gold-pale);
+  color: var(--color-wine-dark);
+}
+
+
+/* =========================================================
+   TEXT BALANCE
+   ========================================================= */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+
+/* =========================================================
+   ZARI BORDER MOTIF
+   ========================================================= */
+
+.zari-rule {
+  position: relative;
+  height: 10px;
+  width: 100%;
+
+  background-image:
+    linear-gradient(
+      var(--color-gold) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      var(--color-gold) 1px,
+      transparent 1px
+    );
+
+  background-position:
+    top,
+    bottom;
+
+  background-size:
+    100% 1px,
+    100% 1px;
+
+  background-repeat: no-repeat;
+}
+
+.zari-rule::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-gold) 0px,
+    var(--color-gold) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+
+  opacity: 0.55;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 3px,
+    black 3px,
+    black 7px,
+    transparent 7px
+  );
+}
+
+
+/* =========================================================
+   FOCUS STATES
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
