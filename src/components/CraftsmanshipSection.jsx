@@ -32,7 +32,7 @@ export default function CraftsmanshipSection() {
         src="/border.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 right-0 z-0 w-32 rotate-180 opacity-70 sm:w-40"
+        className="pointer-events-none absolute bottom-0 right-0 z-0 w-32  opacity-70 sm:w-40"
       />
       <div className="mx-auto max-w-7xl px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
         <div className="lg:col-span-6 grid grid-cols-2 gap-4 sm:gap-6">

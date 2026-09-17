@@ -36,7 +36,7 @@ export default function RegionalNames() {
         src="/border.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 right-0 z-0 w-32 rotate-180 opacity-70 sm:w-40"
+        className="pointer-events-none absolute bottom-0 right-0 z-0 w-32 opacity-70 sm:w-40"
       />
 
       {/* =====================================================
