@@ -91,7 +91,7 @@ export default function RetailCounter() {
             >
               Contact Retail Counter
             </a>
-            <a
+            {/* <a
               href={CONTACT.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -99,7 +99,7 @@ export default function RetailCounter() {
             >
               <InstagramGlyph size={16} />
               View on Instagram
-            </a>
+            </a> */}
           </div>
         </motion.div>
       </div>

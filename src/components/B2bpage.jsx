@@ -27,7 +27,7 @@ const PRODUCTS = [
     tag: "Bestseller",
     minQty: "1 pc",
     priceRange: "₹850 – ₹1,250",
-    image: "/ET_LANGA DAVANI_0111.png",
+    image: "/ET_01_A.avif",
     whatsappMsg: "Hi, I'd like to enquire about the Pattu Langa Classic Zari.",
   },
   {
@@ -36,7 +36,7 @@ const PRODUCTS = [
     tag: "New Arrival",
     minQty: "1 pc",
     priceRange: "₹900 – ₹1,350",
-    image: "/ET_LANGA DAVANI_0222.png",
+    image: "/ET_02_A.avif",
     whatsappMsg: "Hi, I'd like to enquire about the Pattu Langa Rich Border.",
   },
   {
@@ -45,7 +45,7 @@ const PRODUCTS = [
     tag: "Popular",
     minQty: "1 pc",
     priceRange: "₹850 – ₹1,300",
-    image: "/ET_LANGA DAVANI_033.png",
+    image: "/ET_03_A.avif",
     whatsappMsg:
       "Hi, I'd like to enquire about the Pattu Pavada Festive collection.",
   },
@@ -55,7 +55,7 @@ const PRODUCTS = [
     tag: "Classic",
     minQty: "1 pc",
     priceRange: "₹650 – ₹950",
-    image: "/ET_LANGA DAVANI_0333.png",
+    image: "/ET_04_A.avif",
     whatsappMsg: "Hi, I'd like to enquire about the Langa Blouse Set.",
   },
   {
@@ -64,17 +64,8 @@ const PRODUCTS = [
     tag: "Premium",
     minQty: "1 pc",
     priceRange: "₹1,100 – ₹1,650",
-    image: "/img1.avif",
+    image: "/ET_05_A.avif",
     whatsappMsg: "Hi, I'd like to enquire about the Premium Silk Pattu Langa.",
-  },
-  {
-    id: "p6",
-    title: "Pattu Pavada — Silk Set",
-    tag: "Traditional",
-    minQty: "1 pc",
-    priceRange: "₹900 – ₹1,400",
-    image: "/img2.avif",
-    whatsappMsg: "Hi, I'd like to enquire about the Pattu Pavada Silk Set.",
   },
 ];
 
@@ -276,9 +267,7 @@ export default function B2CPage() {
                 delay: 0.35,
                 duration: 0.7,
               }}
-            >
-             
-            </motion.div>
+            ></motion.div>
 
             {/* HEADING */}
 
@@ -814,91 +803,102 @@ export default function B2CPage() {
 
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/95 to-charcoal" />
 
-        <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
-          <div className="text-center">
-            <Eyebrow tone="gold" className="justify-center">
-              Why Choose Us
-            </Eyebrow>
-
-            <h2
-              className="
-                mt-5
-                font-display
-                font-medium
-                text-cream
-                text-balance
-                leading-[1.05]
-                text-4xl
-                sm:text-5xl
-                lg:text-6xl
-              "
-            >
-              Tradition Made
-              <br />
-              <span className="text-gold-light">Beautifully.</span>
-            </h2>
-
-            <ZariDivider className="max-w-[140px] mx-auto mt-8" />
-
-            <p className="mt-8 mx-auto max-w-2xl font-body text-base sm:text-lg text-cream/75 leading-relaxed">
-              We combine traditional craftsmanship with careful finishing to
-              create ethnic wear that feels special from the moment it arrives.
-            </p>
-          </div>
-
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {/* CARD 1 */}
-
-            <div className="border border-cream/10 p-7 text-center">
-              <ShoppingBag
-                size={25}
-                className="mx-auto text-gold-light"
-                strokeWidth={1.5}
-              />
-
-              <h3 className="mt-5 font-display text-xl text-cream">
-                Wide Collection
-              </h3>
-
-              <p className="mt-2 font-body text-sm text-cream/60 leading-relaxed">
-                Traditional styles for festivals, weddings and celebrations.
-              </p>
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            {/* LEFT SIDE IMAGE */}
+            <div className="relative w-full h-[180px] lg:h-[760px]">
+              <video
+                src="/56.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                Your browser does not support the video tag.
+              </video>
+              {/* optional decorative border/frame to match the theme */}
+              <div className="absolute inset-0 border border-gold-light/20 pointer-events-none" />
             </div>
 
-            {/* CARD 2 */}
+            {/* RIGHT SIDE CONTENT */}
+            <div>
+              <div className="text-left">
+                <Eyebrow tone="gold">Why Choose Us</Eyebrow>
 
-            <div className="border border-cream/10 p-7 text-center">
-              <Star
-                size={25}
-                className="mx-auto text-gold-light"
-                strokeWidth={1.5}
-              />
+                <h2
+                  className="
+    mt-5
+    font-display
+    font-medium
+    text-cream
+    text-balance
+    leading-[1.05]
+    text-4xl
+    sm:text-5xl
+    lg:text-6xl
+  "
+                >
+                  Tradition Made
+                  <br />
+                  <span className="text-gold-light">Beautifully.</span>
+                </h2>
 
-              <h3 className="mt-5 font-display text-xl text-cream">
-                Quality First
-              </h3>
+                <ZariDivider className="max-w-[140px] mt-8" />
 
-              <p className="mt-2 font-body text-sm text-cream/60 leading-relaxed">
-                Every garment receives careful finishing and quality checks.
-              </p>
-            </div>
+                <p className="mt-8 max-w-2xl font-body text-base sm:text-lg text-cream/75 leading-relaxed">
+                  We combine traditional craftsmanship with careful finishing to
+                  create ethnic wear that feels special from the moment it
+                  arrives.
+                </p>
+              </div>
 
-            {/* CARD 3 */}
+              <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {/* CARD 1 */}
+                <div className="border border-cream/10 p-7 text-center sm:text-left">
+                  <ShoppingBag
+                    size={25}
+                    className="mx-auto sm:mx-0 text-gold-light"
+                    strokeWidth={1.5}
+                  />
+                  <h3 className="mt-5 font-display text-xl text-cream">
+                    Wide Collection
+                  </h3>
+                  <p className="mt-2 font-body text-sm text-cream/60 leading-relaxed">
+                    Traditional styles for festivals, weddings and celebrations.
+                  </p>
+                </div>
 
-            <div className="border border-cream/10 p-7 text-center">
-              <MessageCircle
-                size={25}
-                className="mx-auto text-gold-light"
-                strokeWidth={1.5}
-              />
+                {/* CARD 2 */}
+                <div className="border border-cream/10 p-7 text-center sm:text-left">
+                  <Star
+                    size={25}
+                    className="mx-auto sm:mx-0 text-gold-light"
+                    strokeWidth={1.5}
+                  />
+                  <h3 className="mt-5 font-display text-xl text-cream">
+                    Quality First
+                  </h3>
+                  <p className="mt-2 font-body text-sm text-cream/60 leading-relaxed">
+                    Every garment receives careful finishing and quality checks.
+                  </p>
+                </div>
 
-              <h3 className="mt-5 font-display text-xl text-cream">
-                Personal Support
-              </h3>
-
-              <p className="mt-2 font-body text-sm text-cream/60 leading-relaxed">
-                Get direct assistance whenever you need help choosing.
-              </p>
+                {/* CARD 3 */}
+                <div className="border border-cream/10 p-7 text-center sm:text-left sm:col-span-2">
+                  <MessageCircle
+                    size={25}
+                    className="mx-auto sm:mx-0 text-gold-light"
+                    strokeWidth={1.5}
+                  />
+                  <h3 className="mt-5 font-display text-xl text-cream">
+                    Personal Support
+                  </h3>
+                  <p className="mt-2 font-body text-sm text-cream/60 leading-relaxed">
+                    Get direct assistance whenever you need help choosing.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

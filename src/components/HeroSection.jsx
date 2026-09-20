@@ -107,7 +107,7 @@ export default function HeroSection() {
             className="mt-10 flex flex-col sm:flex-row gap-4"
           >
             <a
-              href="#manufacturing"
+              href="/contact"
               className="group inline-flex items-center justify-center gap-2 rounded-sm bg-gold-light text-wine-dark px-8 py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream transition-colors"
             >
               Explore Our Manufacturing

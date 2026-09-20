@@ -141,61 +141,47 @@ const PRODUCTS = [
     id: "p1",
     title: "Pattu Langa — Classic Zari",
     tag: "Bestseller",
-    minQty: "10 pcs",
-    priceRange: "₹450 – ₹650",
-    image: "/ET_LANGA DAVANI_0111.png",
-    whatsappMsg:
-      "Hi, I'd like to enquire about the Pattu Langa Classic Zari for wholesale.",
+    minQty: "1 pc",
+    priceRange: "₹850 – ₹1,250",
+    image: "/ET_01_A.avif",
+    whatsappMsg: "Hi, I'd like to enquire about the Pattu Langa Classic Zari.",
   },
   {
     id: "p2",
     title: "Pattu Langa — Rich Border",
     tag: "New Arrival",
-    minQty: "10 pcs",
-    priceRange: "₹480 – ₹680",
-    image: "/ET_LANGA DAVANI_0222.png",
-    whatsappMsg:
-      "Hi, I'd like to enquire about the Pattu Langa Rich Border for wholesale.",
+    minQty: "1 pc",
+    priceRange: "₹900 – ₹1,350",
+    image: "/ET_02_A.avif",
+    whatsappMsg: "Hi, I'd like to enquire about the Pattu Langa Rich Border.",
   },
   {
     id: "p3",
     title: "Pattu Pavada — Festive",
-    tag: "High Demand",
-    minQty: "10 pcs",
-    priceRange: "₹500 – ₹720",
-    image: "/ET_LANGA DAVANI_033.png",
+    tag: "Popular",
+    minQty: "1 pc",
+    priceRange: "₹850 – ₹1,300",
+    image: "/ET_03_A.avif",
     whatsappMsg:
-      "Hi, I'd like to enquire about the Pattu Pavada Festive collection for wholesale.",
+      "Hi, I'd like to enquire about the Pattu Pavada Festive collection.",
   },
   {
     id: "p4",
     title: "Langa Blouse Set",
-    tag: "Bulk Favourite",
-    minQty: "10 pcs",
-    priceRange: "₹420 – ₹600",
-    image: "/ET_LANGA DAVANI_0333.png",
-    whatsappMsg:
-      "Hi, I'd like to enquire about the Langa Blouse Set for wholesale.",
+    tag: "Classic",
+    minQty: "1 pc",
+    priceRange: "₹650 – ₹950",
+    image: "/ET_04_A.avif",
+    whatsappMsg: "Hi, I'd like to enquire Langa Blouse.",
   },
   {
     id: "p5",
     title: "Pattu Langa — Premium Silk",
     tag: "Premium",
-    minQty: "10 pcs",
-    priceRange: "₹580 – ₹800",
-    image: "/img1.avif",
-    whatsappMsg:
-      "Hi, I'd like to enquire about the Premium Silk Pattu Langa for wholesale.",
-  },
-  {
-    id: "p6",
-    title: "Pattu Pavada — Silk Set",
-    tag: "Classic",
-    minQty: "10 pcs",
-    priceRange: "₹460 – ₹660",
-    image: "/img2.avif",
-    whatsappMsg:
-      "Hi, I'd like to enquire about the Pattu Pavada Silk Set for wholesale.",
+    minQty: "1 pc",
+    priceRange: "₹1,100 – ₹1,650",
+    image: "/ET_05_A.avif",
+    whatsappMsg: "Hi, I'd like to enquire Pattu Langa.",
   },
 ];
 
@@ -223,7 +209,7 @@ export default function B2CPage() {
           }}
         >
           <img
-            src="/Landing_Page.avif"
+            src="/g5.avif"
             alt="Beautiful Pattu Pavada garments"
             className="w-full h-full object-cover object-center max-sm:object-[30%_center]"
             fetchPriority="high"
@@ -556,8 +542,6 @@ export default function B2CPage() {
       {/* =====================================================
           COLLECTIONS
       ===================================================== */}
-
-     
 
       {/* =====================================================
           HOW TO ORDER

@@ -19,17 +19,14 @@ export const CONTACT = {
   // Format: country code + number
   // Example India: "919999999999"
   // Do NOT use +, spaces or -
-  whatsappNumber: "YOUR_WHATSAPP_NUMBER",
+  whatsappNumber: "919916760001",
 
   // Phone number
-  phone: "YOUR_PHONE_NUMBER",
+  phone: "9916760001",
 
   // Business email
   email: "YOUR_EMAIL",
 
-  // Instagram
-  instagramUrl: "YOUR_INSTAGRAM_URL",
-  instagramHandle: "@YOUR_INSTAGRAM_HANDLE",
 };
 
 // ---------------------------------------------------------------------------

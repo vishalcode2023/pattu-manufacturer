@@ -6,6 +6,7 @@ import { BRAND_NAME, BRAND_TAGLINE, getWhatsAppLink } from "../config/site";
 import { ZariDivider } from "./Decorative";
 
 const NAV_ITEMS = [
+  { label: "Home", to: "/" },
   { label: "Wholesale (B2B)", to: "/b2b" },
   { label: "Shop (B2C)", to: "/b2c" },
   { label: "Contact", to: "/contact" },

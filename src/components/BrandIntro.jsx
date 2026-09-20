@@ -50,7 +50,7 @@ export default function BrandIntro() {
               preload="metadata"
               poster={IMAGES.brandIntro.src}
             >
-              <source src="/g1.mp4" type="video/mp4" />
+              <source src="/g2.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
