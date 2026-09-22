@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+
 import {
   ArrowRight,
   ArrowUpRight,
@@ -15,6 +17,15 @@ import Footer from "../components/Footer";
 import { Eyebrow, SectionHeading, ZariDivider } from "../components/Decorative";
 
 import { getWhatsAppLink } from "../config/site";
+
+/* =========================================================
+   HERO BACKGROUND IMAGES
+========================================================= */
+
+const HERO_IMAGES = [
+  "/g5.avif",
+  "/b2c2.avif"
+];
 
 /* =========================================================
    ASSURANCES
@@ -190,6 +201,24 @@ const PRODUCTS = [
 ========================================================= */
 
 export default function B2CPage() {
+  /* =======================================================
+     HERO SLIDER STATE
+  ======================================================= */
+
+  const [heroImage, setHeroImage] = useState(0);
+
+  /* =======================================================
+     CHANGE HERO IMAGE EVERY 5 SECONDS
+  ======================================================= */
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroImage((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main id="main-content">
       <Navbar variant="dark" />
@@ -199,28 +228,75 @@ export default function B2CPage() {
       ===================================================== */}
 
       <section className="relative min-h-[80svh] flex items-end overflow-hidden bg-charcoal">
-        <motion.div
-          className="absolute inset-0"
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{
-            duration: 2.2,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-        >
-          <img
-            src="/g5.avif"
-            alt="Beautiful Pattu Pavada garments"
-            className="w-full h-full object-cover object-center max-sm:object-[30%_center]"
-            fetchPriority="high"
-          />
+        {/* ===================================================
+            HERO BACKGROUND SLIDESHOW
+        =================================================== */}
 
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/55 to-charcoal/20" />
+        <div className="absolute inset-0 overflow-hidden">
+          <AnimatePresence mode="sync">
+            <motion.img
+              key={HERO_IMAGES[heroImage]}
+              src={HERO_IMAGES[heroImage]}
+              alt="Beautiful Pattu Pavada garments"
+              className="absolute inset-0 w-full h-full object-cover object-center max-sm:object-[30%_center]"
+              initial={{
+                opacity: 0,
+                scale: 1.08,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+              }}
+              exit={{
+                opacity: 0,
+                scale: 1.04,
+              }}
+              transition={{
+                opacity: {
+                  duration: 1.2,
+                  ease: "easeInOut",
+                },
+                scale: {
+                  duration: 5,
+                  ease: "easeOut",
+                },
+              }}
+              fetchPriority={heroImage === 0 ? "high" : "auto"}
+            />
+          </AnimatePresence>
 
-          <div className="absolute inset-0 bg-gradient-to-r from-wine-dark/55 via-transparent to-transparent" />
-        </motion.div>
+          {/* Bottom dark gradient */}
 
-        {/* Decorative diamonds */}
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/55 to-charcoal/20 pointer-events-none" />
+
+          {/* Left wine gradient */}
+
+          <div className="absolute inset-0 bg-gradient-to-r from-wine-dark/55 via-transparent to-transparent pointer-events-none" />
+        </div>
+
+        {/* ===================================================
+            SLIDER INDICATORS
+        =================================================== */}
+
+        <div className="absolute bottom-8 right-8 sm:right-12 z-20 flex items-center gap-2">
+          {HERO_IMAGES.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => setHeroImage(index)}
+              aria-label={`Go to hero image ${index + 1}`}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                heroImage === index
+                  ? "w-8 bg-gold-light"
+                  : "w-2 bg-cream/50 hover:bg-cream"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* ===================================================
+            DECORATIVE DIAMONDS
+        =================================================== */}
 
         <motion.div
           aria-hidden="true"
@@ -261,7 +337,7 @@ export default function B2CPage() {
               <rect
                 key={pos}
                 x={pos - 5}
-                y={55}
+                y="55"
                 width="10"
                 height="10"
                 fill="none"
@@ -273,6 +349,10 @@ export default function B2CPage() {
             ))}
           </svg>
         </motion.div>
+
+        {/* ===================================================
+            HERO CONTENT
+        =================================================== */}
 
         <div className="relative z-10 w-full mx-auto max-w-7xl px-5 sm:px-8 pb-16 sm:pb-24 pt-40">
           <div className="max-w-3xl">

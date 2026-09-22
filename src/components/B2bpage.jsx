@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -135,11 +136,27 @@ const COLLECTION_ITEMS = [
   },
 ];
 
-const VIDEO_MAP = {
-  pattuPavada: "/EC_Reel_5.mp4",
-  pattuLanga: "/EC_Reel_7.mp4",
-  langaBlouse: "/EC_Reel_8.mp4",
-  uddalanga: "/EC_Reel_5.mp4",
+/* -------------------------------------------------------------------------- */
+/* HERO IMAGE SLIDER */
+/* -------------------------------------------------------------------------- */
+
+const HERO_IMAGES = ["/whole1.avif", "/whole2.avif", "/whole3.avif"];
+
+/* -------------------------------------------------------------------------- */
+/* WHY CHOOSE US IMAGE SLIDER */
+/* -------------------------------------------------------------------------- */
+
+const WHY_IMAGES = ["/56.avif", "/57.avif", "/58.avif"];
+
+/* -------------------------------------------------------------------------- */
+/* COLLECTION IMAGES */
+/* -------------------------------------------------------------------------- */
+
+const COLLECTION_IMAGES = {
+  pattuPavada: "/EC_01.avif",
+  pattuLanga: "/EC_02.avif",
+  langaBlouse: "/EC_03.avif",
+  uddalanga: "/EC_04.avif",
 };
 
 const STEPS = [
@@ -174,6 +191,42 @@ const STEPS = [
 /* -------------------------------------------------------------------------- */
 
 export default function B2CPage() {
+  /* ------------------------------------------------------------------------ */
+  /* HERO SLIDER STATE */
+  /* ------------------------------------------------------------------------ */
+
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  /* ------------------------------------------------------------------------ */
+  /* WHY CHOOSE US SLIDER STATE */
+  /* ------------------------------------------------------------------------ */
+
+  const [whyImageIndex, setWhyImageIndex] = useState(0);
+
+  /* ------------------------------------------------------------------------ */
+  /* HERO IMAGE AUTO CHANGE */
+  /* ------------------------------------------------------------------------ */
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  /* ------------------------------------------------------------------------ */
+  /* WHY IMAGE AUTO CHANGE */
+  /* ------------------------------------------------------------------------ */
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWhyImageIndex((prev) => (prev + 1) % WHY_IMAGES.length);
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main id="main-content" className="overflow-hidden">
       <Navbar variant="white" />
@@ -183,37 +236,68 @@ export default function B2CPage() {
       {/* ------------------------------------------------------------------ */}
 
       <section className="relative min-h-[90svh] flex items-end overflow-hidden bg-charcoal">
-        {/* ================================================================
-            HERO VIDEO
-        ================================================================= */}
+        {/* ================================================================ */}
+        {/* HERO IMAGE SLIDER */}
+        {/* ================================================================ */}
 
-        <motion.div
-          className="absolute inset-0"
-          initial={{ scale: 1.08 }}
-          animate={{ scale: 1 }}
-          transition={{
-            duration: 2,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-        >
-          <video
-            className="w-full h-full object-cover object-center"
-            src="/g1.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-          />
-        </motion.div>
+        <div className="absolute inset-0 overflow-hidden">
+          <AnimatePresence mode="sync">
+            <motion.div
+              key={HERO_IMAGES[heroIndex]}
+              className="absolute inset-0"
+              initial={{
+                opacity: 0,
+                scale: 1.06,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+              }}
+              exit={{
+                opacity: 0,
+              }}
+              transition={{
+                opacity: {
+                  duration: 1.2,
+                  ease: "easeInOut",
+                },
+                scale: {
+                  duration: 5,
+                  ease: "linear",
+                },
+              }}
+            >
+              <img
+                src={HERO_IMAGES[heroIndex]}
+                alt="Pattu Pavada and Pattu Langa collection"
+                className="w-full h-full object-cover object-center"
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-        {/* ================================================================
-            TEXT READABILITY OVERLAY
+        {/* ================================================================ */}
+        {/* HERO SLIDER DOTS */}
+        {/* ================================================================ */}
 
-            No wine/red color.
-            This only adds a subtle black gradient so the white/gold
-            text remains visible over the bright factory video.
-        ================================================================= */}
+        <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+          {HERO_IMAGES.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              aria-label={`Show hero image ${index + 1}`}
+              aria-current={heroIndex === index ? "true" : "false"}
+              onClick={() => setHeroIndex(index)}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                heroIndex === index ? "w-7 bg-gold-light" : "w-1.5 bg-cream/50"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* ================================================================ */}
+        {/* TEXT READABILITY OVERLAY */}
+        {/* ================================================================ */}
 
         <div
           aria-hidden="true"
@@ -228,9 +312,9 @@ export default function B2CPage() {
           "
         />
 
-        {/* ================================================================
-            SUBTLE BOTTOM OVERLAY
-        ================================================================= */}
+        {/* ================================================================ */}
+        {/* SUBTLE BOTTOM OVERLAY */}
+        {/* ================================================================ */}
 
         <div
           aria-hidden="true"
@@ -246,9 +330,9 @@ export default function B2CPage() {
           "
         />
 
-        {/* ================================================================
-            HERO CONTENT
-        ================================================================= */}
+        {/* ================================================================ */}
+        {/* HERO CONTENT */}
+        {/* ================================================================ */}
 
         <div className="relative z-10 w-full mx-auto max-w-7xl px-5 sm:px-8 pb-16 sm:pb-24 pt-40">
           <div className="max-w-3xl">
@@ -267,7 +351,9 @@ export default function B2CPage() {
                 delay: 0.35,
                 duration: 0.7,
               }}
-            ></motion.div>
+            >
+              <Eyebrow tone="gold">South Indian Ethnic Wear</Eyebrow>
+            </motion.div>
 
             {/* HEADING */}
 
@@ -423,7 +509,9 @@ export default function B2CPage() {
           </div>
         </div>
 
+        {/* ================================================================ */}
         {/* SCROLL INDICATOR */}
+        {/* ================================================================ */}
 
         <div
           className="
@@ -433,6 +521,7 @@ export default function B2CPage() {
             -translate-x-1/2
             text-cream/80
             drop-shadow-md
+            z-20
           "
         >
           <motion.div
@@ -792,6 +881,8 @@ export default function B2CPage() {
       {/* ------------------------------------------------------------------ */}
 
       <section className="relative bg-charcoal py-24 sm:py-32 overflow-hidden">
+        {/* Background image */}
+
         <div className="absolute inset-0 opacity-10">
           <img
             src="/img13.avif"
@@ -805,39 +896,85 @@ export default function B2CPage() {
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* LEFT SIDE IMAGE */}
-            <div className="relative w-full h-[180px] lg:h-[760px]">
-              <video
-                src="/56.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              >
-                Your browser does not support the video tag.
-              </video>
-              {/* optional decorative border/frame to match the theme */}
+            {/* ============================================================ */}
+            {/* LEFT SIDE IMAGE SLIDER */}
+            {/* ============================================================ */}
+
+            <div className="relative w-full h-[500px] lg:h-[760px] overflow-hidden">
+              <AnimatePresence mode="sync">
+                <motion.img
+                  key={WHY_IMAGES[whyImageIndex]}
+                  src={WHY_IMAGES[whyImageIndex]}
+                  alt="Traditional ethnic wear craftsmanship"
+                  className="w-full h-full object-cover"
+                  initial={{
+                    opacity: 0,
+                    scale: 1.05,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                  }}
+                  exit={{
+                    opacity: 0,
+                  }}
+                  transition={{
+                    opacity: {
+                      duration: 1,
+                      ease: "easeInOut",
+                    },
+                    scale: {
+                      duration: 4.5,
+                      ease: "linear",
+                    },
+                  }}
+                />
+              </AnimatePresence>
+
+              {/* Image slider dots */}
+
+              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+                {WHY_IMAGES.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    aria-label={`Show craftsmanship image ${index + 1}`}
+                    aria-current={whyImageIndex === index ? "true" : "false"}
+                    onClick={() => setWhyImageIndex(index)}
+                    className={`h-1.5 rounded-full transition-all duration-500 ${
+                      whyImageIndex === index
+                        ? "w-7 bg-gold-light"
+                        : "w-1.5 bg-cream/50"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Decorative frame */}
+
               <div className="absolute inset-0 border border-gold-light/20 pointer-events-none" />
             </div>
 
+            {/* ============================================================ */}
             {/* RIGHT SIDE CONTENT */}
+            {/* ============================================================ */}
+
             <div>
               <div className="text-left">
                 <Eyebrow tone="gold">Why Choose Us</Eyebrow>
 
                 <h2
                   className="
-    mt-5
-    font-display
-    font-medium
-    text-cream
-    text-balance
-    leading-[1.05]
-    text-4xl
-    sm:text-5xl
-    lg:text-6xl
-  "
+                    mt-5
+                    font-display
+                    font-medium
+                    text-cream
+                    text-balance
+                    leading-[1.05]
+                    text-4xl
+                    sm:text-5xl
+                    lg:text-6xl
+                  "
                 >
                   Tradition Made
                   <br />
@@ -855,45 +992,54 @@ export default function B2CPage() {
 
               <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* CARD 1 */}
+
                 <div className="border border-cream/10 p-7 text-center sm:text-left">
                   <ShoppingBag
                     size={25}
                     className="mx-auto sm:mx-0 text-gold-light"
                     strokeWidth={1.5}
                   />
+
                   <h3 className="mt-5 font-display text-xl text-cream">
                     Wide Collection
                   </h3>
+
                   <p className="mt-2 font-body text-sm text-cream/60 leading-relaxed">
                     Traditional styles for festivals, weddings and celebrations.
                   </p>
                 </div>
 
                 {/* CARD 2 */}
+
                 <div className="border border-cream/10 p-7 text-center sm:text-left">
                   <Star
                     size={25}
                     className="mx-auto sm:mx-0 text-gold-light"
                     strokeWidth={1.5}
                   />
+
                   <h3 className="mt-5 font-display text-xl text-cream">
                     Quality First
                   </h3>
+
                   <p className="mt-2 font-body text-sm text-cream/60 leading-relaxed">
                     Every garment receives careful finishing and quality checks.
                   </p>
                 </div>
 
                 {/* CARD 3 */}
+
                 <div className="border border-cream/10 p-7 text-center sm:text-left sm:col-span-2">
                   <MessageCircle
                     size={25}
                     className="mx-auto sm:mx-0 text-gold-light"
                     strokeWidth={1.5}
                   />
+
                   <h3 className="mt-5 font-display text-xl text-cream">
                     Personal Support
                   </h3>
+
                   <p className="mt-2 font-body text-sm text-cream/60 leading-relaxed">
                     Get direct assistance whenever you need help choosing.
                   </p>

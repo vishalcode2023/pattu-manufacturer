@@ -18,7 +18,7 @@ const fadeUp = {
   },
 };
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "919916760001";
 
 const WHATSAPP_MESSAGE =
   "Hello, I would like to know more about your products and bulk orders.";

@@ -25,14 +25,9 @@ export default function RetailCounter() {
           transition={{ duration: 0.7 }}
           className="lg:col-span-6 relative overflow-hidden order-2 lg:order-1"
         >
-          <video
-            src="/g1.mp4"
-            className="w-full h-[420px] sm:h-[500px] object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
+          <img
+            src="/img1.avif"
+            className="w-full h-[420px] sm:h-[800px] object-cover"
           />
         </motion.div>
 
