@@ -68,6 +68,15 @@ const PRODUCTS = [
     image: "/ET_05_A.avif",
     whatsappMsg: "Hi, I'd like to enquire about the Premium Silk Pattu Langa.",
   },
+  ...["6.avif", "7+.avif", "8.avif", "9.avif", "10.avif", "11.avif"].map(
+    (image, index) => ({
+      id: `davani-${index + 1}`,
+      title: `Langa Davani`,
+      tag: "Langa Davani",
+      image: `/${image}`,
+      whatsappMsg: `Hi, I'd like to enquire about the Langa Davani design ${index + 6}.`,
+    }),
+  ),
 ];
 
 const ASSURANCES = [
@@ -146,8 +155,6 @@ const HERO_IMAGES = ["/whole1.avif", "/whole2.avif", "/whole3.avif"];
 /* WHY CHOOSE US IMAGE SLIDER */
 /* -------------------------------------------------------------------------- */
 
-const WHY_IMAGES = ["/56.avif", "/57.avif", "/58.avif"];
-
 /* -------------------------------------------------------------------------- */
 /* COLLECTION IMAGES */
 /* -------------------------------------------------------------------------- */
@@ -198,12 +205,6 @@ export default function B2CPage() {
   const [heroIndex, setHeroIndex] = useState(0);
 
   /* ------------------------------------------------------------------------ */
-  /* WHY CHOOSE US SLIDER STATE */
-  /* ------------------------------------------------------------------------ */
-
-  const [whyImageIndex, setWhyImageIndex] = useState(0);
-
-  /* ------------------------------------------------------------------------ */
   /* HERO IMAGE AUTO CHANGE */
   /* ------------------------------------------------------------------------ */
 
@@ -211,18 +212,6 @@ export default function B2CPage() {
     const interval = setInterval(() => {
       setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  /* ------------------------------------------------------------------------ */
-  /* WHY IMAGE AUTO CHANGE */
-  /* ------------------------------------------------------------------------ */
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWhyImageIndex((prev) => (prev + 1) % WHY_IMAGES.length);
-    }, 4500);
 
     return () => clearInterval(interval);
   }, []);
@@ -549,7 +538,7 @@ export default function B2CPage() {
             <SectionHeading
               eyebrow="Our Collection"
               title="Made for Beautiful Moments"
-              description="Explore a selection of our traditional collections. Message us on WhatsApp for available colours, sizes and current designs."
+              description="Explore Pattu Pavada, Pattu Langa and Langa Davani designs. Message us on WhatsApp for available colours, sizes and current designs."
             />
 
             <a
@@ -897,58 +886,21 @@ export default function B2CPage() {
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* ============================================================ */}
-            {/* LEFT SIDE IMAGE SLIDER */}
+            {/* LEFT SIDE VIDEO */}
             {/* ============================================================ */}
 
             <div className="relative w-full h-[500px] lg:h-[760px] overflow-hidden">
-              <AnimatePresence mode="sync">
-                <motion.img
-                  key={WHY_IMAGES[whyImageIndex]}
-                  src={WHY_IMAGES[whyImageIndex]}
-                  alt="Traditional ethnic wear craftsmanship"
-                  className="w-full h-full object-cover"
-                  initial={{
-                    opacity: 0,
-                    scale: 1.05,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    scale: 1,
-                  }}
-                  exit={{
-                    opacity: 0,
-                  }}
-                  transition={{
-                    opacity: {
-                      duration: 1,
-                      ease: "easeInOut",
-                    },
-                    scale: {
-                      duration: 4.5,
-                      ease: "linear",
-                    },
-                  }}
-                />
-              </AnimatePresence>
-
-              {/* Image slider dots */}
-
-              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                {WHY_IMAGES.map((_, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    aria-label={`Show craftsmanship image ${index + 1}`}
-                    aria-current={whyImageIndex === index ? "true" : "false"}
-                    onClick={() => setWhyImageIndex(index)}
-                    className={`h-1.5 rounded-full transition-all duration-500 ${
-                      whyImageIndex === index
-                        ? "w-7 bg-gold-light"
-                        : "w-1.5 bg-cream/50"
-                    }`}
-                  />
-                ))}
-              </div>
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+              >
+                <source src="/56.mp4" type="video/mp4" />
+              </video>
 
               {/* Decorative frame */}
 

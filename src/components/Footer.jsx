@@ -3,13 +3,6 @@ import { Link } from "react-router-dom";
 import { BRAND_NAME, CONTACT, RETAIL_COUNTER } from "../config/site";
 import { ZariDivider, InstagramGlyph } from "./Decorative";
 
-const MANUFACTURING_LINKS = [
-  "Pattu Pavada",
-  "Pattu Langa",
-  "Langa Blouse",
-  "Uddalanga",
-];
-
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -17,7 +10,7 @@ export default function Footer() {
     <footer className="bg-charcoal text-cream/70">
       <ZariDivider />
 
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Brand */}
         <div className="lg:col-span-2">
           <Link to="/" className="font-display text-3xl text-cream">{BRAND_NAME}</Link>
@@ -53,20 +46,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Manufacturing */}
-        <nav aria-label="Manufacturing">
-          <h3 className="font-body text-xs uppercase tracking-[0.2em] text-gold-light mb-5">
-            Manufacturing
-          </h3>
-          <ul className="space-y-3 font-body text-sm">
-            {MANUFACTURING_LINKS.map((item) => (
-              <li key={item}>
-                <a href="#collections" className="hover:text-cream transition-colors">{item}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
         {/* Business */}
         <nav aria-label="Business">
           <h3 className="font-body text-xs uppercase tracking-[0.2em] text-gold-light mb-5">
@@ -78,9 +57,6 @@ export default function Footer() {
             </li>
             <li>
               <Link to="/b2c" className="hover:text-cream transition-colors">Shop Direct (B2C)</Link>
-            </li>
-            <li>
-              <a href="#global-supply" className="hover:text-cream transition-colors">Global Supply</a>
             </li>
             <li>
               <Link to="/contact" className="hover:text-cream transition-colors">Contact Us</Link>
@@ -95,8 +71,9 @@ export default function Footer() {
           </h3>
           <address className="not-italic font-body text-sm leading-relaxed">
             {RETAIL_COUNTER.name}
-            <br />
-            {RETAIL_COUNTER.addressLines.slice(1).join(" ")}
+            {RETAIL_COUNTER.addressLines.map((line) => (
+              <span key={line} className="block">{line}</span>
+            ))}
           </address>
         </div>
       </div>
@@ -110,7 +87,6 @@ export default function Footer() {
           <ul className="flex flex-wrap items-center justify-center gap-5 sm:gap-6">
             <li><Link to="/b2b" className="hover:text-cream transition-colors">Wholesale</Link></li>
             <li><Link to="/b2c" className="hover:text-cream transition-colors">Shop Direct</Link></li>
-            <li><Link to="/collection" className="hover:text-cream transition-colors">Collections</Link></li>
           </ul>
           <p className="text-center lg:text-right">
             Developed by{" "}

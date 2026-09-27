@@ -194,6 +194,15 @@ const PRODUCTS = [
     image: "/ET_05_A.avif",
     whatsappMsg: "Hi, I'd like to enquire Pattu Langa.",
   },
+  ...["6.avif", "7+.avif", "8.avif", "9.avif", "10.avif", "11.avif"].map(
+    (image, index) => ({
+      id: `davani-${index + 1}`,
+      title: `Langa Davani — Design`,
+      tag: "Langa Davani",
+      image: `/${image}`,
+      whatsappMsg: `Hi, I'd like to enquire about the Langa Davani design ${index + 6}.`,
+    }),
+  ),
 ];
 
 /* =========================================================
@@ -467,7 +476,7 @@ export default function B2CPage() {
             <SectionHeading
               eyebrow="Our Collection"
               title="Made for Beautiful Moments"
-              description="A selection from our current manufacturing range. Enquire on WhatsApp for the full catalogue with current stock, colours and sizing."
+              description="Explore Pattu Pavada, Pattu Langa and Langa Davani from our current manufacturing range. Enquire on WhatsApp for current stock, colours and sizing."
             />
 
             <a
@@ -728,13 +737,18 @@ export default function B2CPage() {
               ease: [0.16, 1, 0.3, 1],
             }}
           >
-            <div className="relative overflow-hidden">
-              <img
-                src="/img1.avif"
-                alt="Handcrafted Pattu Pavada detail"
-                className="w-full h-[480px] object-cover"
-                loading="lazy"
-              />
+            <div className="relative h-[480px] overflow-hidden">
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+              >
+                <source src="/56.mp4" type="video/mp4" />
+              </video>
             </div>
 
             <div className="absolute -bottom-6 -right-6 hidden sm:block w-32 h-32 border border-gold/60" />

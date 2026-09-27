@@ -25,7 +25,10 @@ export const CONTACT = {
   phone: "9916760001",
 
   // Business email
-  email: "YOUR_EMAIL",
+  email: "ethniccollections2011@gmail.com",
+
+  // Instagram profile
+  instagramUrl: "https://www.instagram.com/ethnic_collections_kdroad?stkn=ZTdyYjd0b3NmOHZ6",
 
 };
 
@@ -49,13 +52,13 @@ export const RETAIL_COUNTER = {
   name: "Ethnic Collections",
 
   addressLines: [
-    "Shop No. 1 & 2,",
+    "1 & 2, Sri Kuvempu Vidhyavardhaka Trust,",
     "Kalidasa Road,",
     "Jayalakshmipuram,",
-    "Mysuru – 570012",
+    "Mysore, Karnataka",
   ],
 
-  city: "Mysuru",
+  city: "Mysore",
   state: "Karnataka",
   country: "India",
 };
