@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import { BRAND_NAME, CONTACT, RETAIL_COUNTER } from "../config/site";
 import { ZariDivider, InstagramGlyph } from "./Decorative";
 
+const RETAIL_PHONES = [
+  { label: "9916760001", href: "tel:+919916760001" },
+  { label: "9739606361", href: "tel:+919739606361" },
+  { label: "9972566518", href: "tel:+919972566518" },
+  { label: "Landline: 0821-2413045", href: "tel:+918212413045" },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -10,10 +17,12 @@ export default function Footer() {
     <footer className="bg-charcoal text-cream/70">
       <ZariDivider />
 
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
         {/* Brand */}
         <div className="lg:col-span-2">
-          <Link to="/" className="font-display text-3xl text-cream">{BRAND_NAME}</Link>
+          <Link to="/" className="font-display text-3xl text-cream">
+            {BRAND_NAME}
+          </Link>
           <p className="mt-4 font-body text-sm leading-relaxed max-w-xs">
             Manufacturer of Pattu Pavada, Pattu Langa, Langa Blouse and South
             Indian traditional girls&rsquo; ethnic wear, supplying India and
@@ -53,13 +62,22 @@ export default function Footer() {
           </h3>
           <ul className="space-y-3 font-body text-sm">
             <li>
-              <Link to="/b2b" className="hover:text-cream transition-colors">Wholesale (B2B)</Link>
+              <Link to="/b2b" className="hover:text-cream transition-colors">
+                Wholesale (B2B)
+              </Link>
             </li>
             <li>
-              <Link to="/b2c" className="hover:text-cream transition-colors">Shop Direct (B2C)</Link>
+              <Link to="/b2c" className="hover:text-cream transition-colors">
+                Shop Direct (B2C)
+              </Link>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-cream transition-colors">Contact Us</Link>
+              <Link
+                to="/contact"
+                className="hover:text-cream transition-colors"
+              >
+                Contact Us
+              </Link>
             </li>
           </ul>
         </nav>
@@ -72,9 +90,28 @@ export default function Footer() {
           <address className="not-italic font-body text-sm leading-relaxed">
             {RETAIL_COUNTER.name}
             {RETAIL_COUNTER.addressLines.map((line) => (
-              <span key={line} className="block">{line}</span>
+              <span key={line} className="block">
+                {line}
+              </span>
             ))}
           </address>
+        </div>
+
+        {/* Phone Numbers */}
+        <div>
+          <h3 className="font-body text-xs uppercase tracking-[0.2em] text-gold-light mb-5">
+            Call Us
+          </h3>
+          <ul className="space-y-3 font-body text-sm">
+            {RETAIL_PHONES.map(({ label, href }) => (
+              <li key={href} className="flex items-center gap-2">
+                <Phone size={14} className="text-gold-light shrink-0" />
+                <a href={href} className="hover:text-cream transition-colors">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
@@ -85,8 +122,16 @@ export default function Footer() {
             © {year} {BRAND_NAME}. All rights reserved.
           </p>
           <ul className="flex flex-wrap items-center justify-center gap-5 sm:gap-6">
-            <li><Link to="/b2b" className="hover:text-cream transition-colors">Wholesale</Link></li>
-            <li><Link to="/b2c" className="hover:text-cream transition-colors">Shop Direct</Link></li>
+            <li>
+              <Link to="/b2b" className="hover:text-cream transition-colors">
+                Wholesale
+              </Link>
+            </li>
+            <li>
+              <Link to="/b2c" className="hover:text-cream transition-colors">
+                Shop Direct
+              </Link>
+            </li>
           </ul>
           <p className="text-center lg:text-right">
             Developed by{" "}

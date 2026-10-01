@@ -367,7 +367,7 @@ export default function B2CPage() {
                 text-cream
                 leading-[1.02]
                 text-balance
-                text-5xl
+                text-4xl
                 sm:text-6xl
                 lg:text-7xl
                 drop-shadow-[0_3px_8px_rgba(0,0,0,0.55)]
@@ -401,10 +401,11 @@ export default function B2CPage() {
                 duration: 0.7,
               }}
               className="
-                mt-7
+                mt-5
+                sm:mt-7
                 font-body
                 text-cream
-                text-base
+                text-sm
                 sm:text-lg
                 leading-relaxed
                 max-w-xl
@@ -430,7 +431,7 @@ export default function B2CPage() {
                 delay: 0.85,
                 duration: 0.7,
               }}
-              className="mt-10 flex flex-col sm:flex-row gap-4"
+              className="mt-7 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
               {/* WHATSAPP BUTTON */}
 
@@ -449,8 +450,10 @@ export default function B2CPage() {
                   rounded-sm
                   bg-gold-light
                   text-wine-dark
-                  px-8
-                  py-4
+                  px-6
+                  sm:px-8
+                  py-3
+                  sm:py-4
                   font-body
                   text-sm
                   font-semibold
@@ -481,8 +484,10 @@ export default function B2CPage() {
                   bg-black/10
                   backdrop-blur-[2px]
                   text-cream
-                  px-8
-                  py-4
+                  px-6
+                  sm:px-8
+                  py-3
+                  sm:py-4
                   font-body
                   text-sm
                   font-semibold

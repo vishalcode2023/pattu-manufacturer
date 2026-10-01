@@ -23,6 +23,13 @@ const WHATSAPP_NUMBER = "919916760001";
 const WHATSAPP_MESSAGE =
   "Hello, I would like to know more about your products and bulk orders.";
 
+const PHONES = [
+  { label: "9916760001", href: "tel:+919916760001" },
+  { label: "9739606361", href: "tel:+919739606361" },
+  { label: "9972566518", href: "tel:+919972566518" },
+  { label: "Landline: 0821-2413045", href: "tel:+918212413045" },
+];
+
 export default function ContactSection() {
   const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     WHATSAPP_MESSAGE,
@@ -102,7 +109,21 @@ export default function ContactSection() {
                 about us? Connect with our team directly on WhatsApp.
               </p>
 
-              
+              {/* Phone Numbers */}
+
+              <ul className="mt-8 space-y-3 font-body text-base text-charcoal">
+                {PHONES.map(({ label, href }) => (
+                  <li key={href} className="flex items-center gap-3">
+                    <Phone size={18} className="text-wine shrink-0" />
+                    <a
+                      href={href}
+                      className="hover:text-wine transition-colors"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
 
             {/* ===================================================

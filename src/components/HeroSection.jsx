@@ -149,7 +149,7 @@ export default function HeroSection() {
 
       {/* ================= HERO CONTENT ================= */}
       <div className="relative z-10 w-full mx-auto max-w-7xl px-5 sm:px-8 pb-16 sm:pb-20 pt-40">
-        <div className="max-w-3xl -translate-y-25">
+        <div className="max-w-3xl -translate-y-12 sm:-translate-y-25">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -171,7 +171,7 @@ export default function HeroSection() {
               duration: 0.8,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="mt-16 font-display font-medium text-cream leading-[1.02] text-balance text-4xl sm:text-5xl lg:text-6xl xl:text-6xl"
+            className="mt-10 sm:mt-16 font-display font-medium text-cream leading-[1.02] text-balance text-3xl sm:text-5xl lg:text-6xl xl:text-6xl"
           >
             Crafted in Tradition
             <br />
@@ -186,7 +186,7 @@ export default function HeroSection() {
               delay: 0.75,
               duration: 0.7,
             }}
-            className="mt-7 font-body text-cream/85 text-base sm:text-lg leading-relaxed max-w-xl"
+            className="mt-5 sm:mt-7 font-body text-cream/85 text-sm sm:text-lg leading-relaxed max-w-xl"
           >
             Premium Pattu Pavada, Pattu Langa &amp; Blouses, crafted in Mysuru
             for India and the world.
@@ -200,12 +200,12 @@ export default function HeroSection() {
               delay: 0.95,
               duration: 0.7,
             }}
-            className="mt-10 flex flex-col sm:flex-row gap-4"
+            className="mt-7 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
             {/* Manufacturing Button */}
             <a
               href="/contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-sm bg-gold-light text-wine-dark px-8 py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream transition-colors"
+              className="group inline-flex items-center justify-center gap-2 rounded-sm bg-gold-light text-wine-dark px-6 sm:px-8 py-3 sm:py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream transition-colors"
             >
               Explore Our Manufacturing
               <ArrowRight
@@ -221,7 +221,7 @@ export default function HeroSection() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-sm border border-cream/50 text-cream px-8 py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-sm border border-cream/50 text-cream px-6 sm:px-8 py-3 sm:py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream/10 transition-colors"
             >
               Partner With Us
             </a>

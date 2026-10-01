@@ -396,7 +396,7 @@ export default function B2CPage() {
                 duration: 0.8,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-6 font-display font-medium text-cream leading-[1.02] text-balance text-5xl sm:text-6xl lg:text-7xl"
+              className="mt-5 sm:mt-6 font-display font-medium text-cream leading-[1.02] text-balance text-4xl sm:text-6xl lg:text-7xl"
             >
               Dress Her in
               <br />
@@ -416,7 +416,7 @@ export default function B2CPage() {
                 delay: 0.75,
                 duration: 0.7,
               }}
-              className="mt-7 font-body text-cream/85 text-base sm:text-lg leading-relaxed max-w-xl"
+              className="mt-5 sm:mt-7 font-body text-cream/85 text-sm sm:text-lg leading-relaxed max-w-xl"
             >
               Handcrafted Pattu Pavada, Pattu Langa and Langa Blouse sets — made
               with traditional craftsmanship in Mysuru, delivered straight to
@@ -436,7 +436,7 @@ export default function B2CPage() {
                 delay: 0.9,
                 duration: 0.7,
               }}
-              className="mt-10 flex flex-col sm:flex-row gap-4"
+              className="mt-7 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
               <a
                 href={getWhatsAppLink(
@@ -444,7 +444,7 @@ export default function B2CPage() {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 rounded-sm bg-gold-light text-wine-dark px-8 py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream transition-colors"
+                className="group inline-flex items-center justify-center gap-2 rounded-sm bg-gold-light text-wine-dark px-6 sm:px-8 py-3 sm:py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream transition-colors"
               >
                 <MessageCircle size={16} />
                 Order on WhatsApp
@@ -456,7 +456,7 @@ export default function B2CPage() {
 
               <a
                 href="#collections"
-                className="inline-flex items-center justify-center gap-2 rounded-sm border border-cream/50 text-cream px-8 py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-sm border border-cream/50 text-cream px-6 sm:px-8 py-3 sm:py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream/10 transition-colors"
               >
                 Browse Collections
                 <ChevronDown size={16} />
