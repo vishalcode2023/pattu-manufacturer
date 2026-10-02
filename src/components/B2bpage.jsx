@@ -744,7 +744,7 @@ export default function B2CPage() {
       {/* ASSURANCES */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="relative bg-wine-dark py-20 sm:py-24">
+      <section className="relative bg-[#F6F1E7] py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {ASSURANCES.map((item, i) => {
@@ -781,18 +781,18 @@ export default function B2CPage() {
                       h-12
                       rounded-full
                       border
-                      border-gold/40
-                      text-gold-light
+                      border-wine/40
+                      text-wine
                     "
                   >
                     <Icon size={21} strokeWidth={1.5} />
                   </div>
 
-                  <h3 className="mt-5 font-display text-xl text-cream">
+                  <h3 className="mt-5 font-display text-xl text-wine-dark">
                     {item.title}
                   </h3>
 
-                  <p className="mt-2 font-body text-sm text-cream/65 leading-relaxed">
+                  <p className="mt-2 font-body text-sm text-charcoal/70 leading-relaxed">
                     {item.description}
                   </p>
                 </motion.div>
@@ -874,7 +874,7 @@ export default function B2CPage() {
       {/* WHY US */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="relative bg-charcoal py-24 sm:py-32 overflow-hidden">
+      <section className="relative bg-[#F6F1E7] py-24 sm:py-32 overflow-hidden">
         {/* Background image */}
 
         <div className="absolute inset-0 opacity-10">
@@ -886,7 +886,7 @@ export default function B2CPage() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/95 to-charcoal" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F6F1E7] via-[#F6F1E7]/95 to-[#F6F1E7]" />
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -909,7 +909,7 @@ export default function B2CPage() {
 
               {/* Decorative frame */}
 
-              <div className="absolute inset-0 border border-gold-light/20 pointer-events-none" />
+              <div className="absolute inset-0 border border-wine/20 pointer-events-none" />
             </div>
 
             {/* ============================================================ */}
@@ -918,14 +918,14 @@ export default function B2CPage() {
 
             <div>
               <div className="text-left">
-                <Eyebrow tone="gold">Why Choose Us</Eyebrow>
+                <Eyebrow tone="wine">Why Choose Us</Eyebrow>
 
                 <h2
                   className="
                     mt-5
                     font-display
                     font-medium
-                    text-cream
+                    text-wine-dark
                     text-balance
                     leading-[1.05]
                     text-4xl
@@ -935,12 +935,12 @@ export default function B2CPage() {
                 >
                   Tradition Made
                   <br />
-                  <span className="text-gold-light">Beautifully.</span>
+                  <span className="text-wine">Beautifully.</span>
                 </h2>
 
                 <ZariDivider className="max-w-[140px] mt-8" />
 
-                <p className="mt-8 max-w-2xl font-body text-base sm:text-lg text-cream/75 leading-relaxed">
+                <p className="mt-8 max-w-2xl font-body text-base sm:text-lg text-charcoal/75 leading-relaxed">
                   We combine traditional craftsmanship with careful finishing to
                   create ethnic wear that feels special from the moment it
                   arrives.
@@ -950,54 +950,54 @@ export default function B2CPage() {
               <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* CARD 1 */}
 
-                <div className="border border-cream/10 p-7 text-center sm:text-left">
+                <div className="border border-wine/20 p-7 text-center sm:text-left">
                   <ShoppingBag
                     size={25}
-                    className="mx-auto sm:mx-0 text-gold-light"
+                    className="mx-auto sm:mx-0 text-wine"
                     strokeWidth={1.5}
                   />
 
-                  <h3 className="mt-5 font-display text-xl text-cream">
+                  <h3 className="mt-5 font-display text-xl text-wine-dark">
                     Wide Collection
                   </h3>
 
-                  <p className="mt-2 font-body text-sm text-cream/60 leading-relaxed">
+                  <p className="mt-2 font-body text-sm text-charcoal/65 leading-relaxed">
                     Traditional styles for festivals, weddings and celebrations.
                   </p>
                 </div>
 
                 {/* CARD 2 */}
 
-                <div className="border border-cream/10 p-7 text-center sm:text-left">
+                <div className="border border-wine/20 p-7 text-center sm:text-left">
                   <Star
                     size={25}
-                    className="mx-auto sm:mx-0 text-gold-light"
+                    className="mx-auto sm:mx-0 text-wine"
                     strokeWidth={1.5}
                   />
 
-                  <h3 className="mt-5 font-display text-xl text-cream">
+                  <h3 className="mt-5 font-display text-xl text-wine-dark">
                     Quality First
                   </h3>
 
-                  <p className="mt-2 font-body text-sm text-cream/60 leading-relaxed">
+                  <p className="mt-2 font-body text-sm text-charcoal/65 leading-relaxed">
                     Every garment receives careful finishing and quality checks.
                   </p>
                 </div>
 
                 {/* CARD 3 */}
 
-                <div className="border border-cream/10 p-7 text-center sm:text-left sm:col-span-2">
+                <div className="border border-wine/20 p-7 text-center sm:text-left sm:col-span-2">
                   <MessageCircle
                     size={25}
-                    className="mx-auto sm:mx-0 text-gold-light"
+                    className="mx-auto sm:mx-0 text-wine"
                     strokeWidth={1.5}
                   />
 
-                  <h3 className="mt-5 font-display text-xl text-cream">
+                  <h3 className="mt-5 font-display text-xl text-wine-dark">
                     Personal Support
                   </h3>
 
-                  <p className="mt-2 font-body text-sm text-cream/60 leading-relaxed">
+                  <p className="mt-2 font-body text-sm text-charcoal/65 leading-relaxed">
                     Get direct assistance whenever you need help choosing.
                   </p>
                 </div>
@@ -1011,7 +1011,7 @@ export default function B2CPage() {
       {/* FINAL CTA */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="relative bg-wine-dark py-24 sm:py-32 overflow-hidden">
+      <section className="relative bg-[#F6F1E7] py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-15">
           <img
             src="/img14.png"
@@ -1021,7 +1021,7 @@ export default function B2CPage() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-wine-dark/80 via-wine-dark to-wine-dark" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F6F1E7]/80 via-[#F6F1E7] to-[#F6F1E7]" />
 
         <div className="relative mx-auto max-w-4xl px-5 sm:px-8 text-center">
           <motion.div
@@ -1041,7 +1041,7 @@ export default function B2CPage() {
               duration: 0.7,
             }}
           >
-            <Eyebrow tone="gold" className="justify-center">
+            <Eyebrow tone="wine" className="justify-center">
               Ready to Shop?
             </Eyebrow>
 
@@ -1050,7 +1050,7 @@ export default function B2CPage() {
                 mt-5
                 font-display
                 font-medium
-                text-cream
+                text-wine-dark
                 text-balance
                 leading-[1.05]
                 text-4xl
@@ -1060,12 +1060,12 @@ export default function B2CPage() {
             >
               Let's Find Something
               <br />
-              <span className="text-gold-light">Beautiful for Her.</span>
+              <span className="text-wine">Beautiful for Her.</span>
             </h2>
 
             <ZariDivider className="max-w-[140px] mx-auto mt-8" />
 
-            <p className="mt-8 mx-auto max-w-2xl font-body text-base sm:text-lg text-cream/80 leading-relaxed">
+            <p className="mt-8 mx-auto max-w-2xl font-body text-base sm:text-lg text-charcoal/80 leading-relaxed">
               Tell us what you're looking for and we'll help you find the
               perfect Pattu Pavada or Pattu Langa for your special occasion.
             </p>
@@ -1087,15 +1087,15 @@ export default function B2CPage() {
                   justify-center
                   gap-2
                   rounded-sm
-                  bg-gold-light
-                  text-wine-dark
+                  bg-wine-dark
+                  text-cream
                   px-8
                   py-4
                   font-body
                   text-sm
                   font-semibold
                   tracking-wide
-                  hover:bg-cream
+                  hover:bg-wine
                   transition-colors
                 "
               >
@@ -1116,15 +1116,15 @@ export default function B2CPage() {
                   gap-2
                   rounded-sm
                   border
-                  border-cream/50
-                  text-cream
+                  border-wine-dark/50
+                  text-wine-dark
                   px-8
                   py-4
                   font-body
                   text-sm
                   font-semibold
                   tracking-wide
-                  hover:bg-cream/10
+                  hover:bg-wine-dark/10
                   transition-colors
                 "
               >

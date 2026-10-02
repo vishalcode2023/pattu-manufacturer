@@ -14,13 +14,13 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-charcoal text-cream/70">
+    <footer className="bg-[#F6F1E7] text-charcoal/70">
       <ZariDivider />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
         {/* Brand */}
         <div className="lg:col-span-2">
-          <Link to="/" className="font-display text-3xl text-cream">
+          <Link to="/" className="font-display text-3xl text-wine-dark">
             {BRAND_NAME}
           </Link>
           <p className="mt-4 font-body text-sm leading-relaxed max-w-xs">
@@ -34,21 +34,21 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow us on Instagram"
-              className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-cream/25 hover:border-gold hover:text-gold-light transition-colors"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-charcoal/25 hover:border-wine hover:text-wine transition-colors"
             >
               <InstagramGlyph size={17} />
             </a>
             <a
               href={`mailto:${CONTACT.email}`}
               aria-label="Email us"
-              className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-cream/25 hover:border-gold hover:text-gold-light transition-colors"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-charcoal/25 hover:border-wine hover:text-wine transition-colors"
             >
               <Mail size={17} />
             </a>
             <a
               href={`tel:${CONTACT.phone}`}
               aria-label="Call us"
-              className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-cream/25 hover:border-gold hover:text-gold-light transition-colors"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-charcoal/25 hover:border-wine hover:text-wine transition-colors"
             >
               <Phone size={17} />
             </a>
@@ -57,25 +57,22 @@ export default function Footer() {
 
         {/* Business */}
         <nav aria-label="Business">
-          <h3 className="font-body text-xs uppercase tracking-[0.2em] text-gold-light mb-5">
+          <h3 className="font-body text-xs uppercase tracking-[0.2em] text-wine mb-5">
             Business
           </h3>
           <ul className="space-y-3 font-body text-sm">
             <li>
-              <Link to="/b2b" className="hover:text-cream transition-colors">
+              <Link to="/b2b" className="hover:text-wine transition-colors">
                 Wholesale (B2B)
               </Link>
             </li>
             <li>
-              <Link to="/b2c" className="hover:text-cream transition-colors">
+              <Link to="/b2c" className="hover:text-wine transition-colors">
                 Shop Direct (B2C)
               </Link>
             </li>
             <li>
-              <Link
-                to="/contact"
-                className="hover:text-cream transition-colors"
-              >
+              <Link to="/contact" className="hover:text-wine transition-colors">
                 Contact Us
               </Link>
             </li>
@@ -84,7 +81,7 @@ export default function Footer() {
 
         {/* Retail */}
         <div>
-          <h3 className="font-body text-xs uppercase tracking-[0.2em] text-gold-light mb-5">
+          <h3 className="font-body text-xs uppercase tracking-[0.2em] text-wine mb-5">
             Retail
           </h3>
           <address className="not-italic font-body text-sm leading-relaxed">
@@ -99,14 +96,14 @@ export default function Footer() {
 
         {/* Phone Numbers */}
         <div>
-          <h3 className="font-body text-xs uppercase tracking-[0.2em] text-gold-light mb-5">
+          <h3 className="font-body text-xs uppercase tracking-[0.2em] text-wine mb-5">
             Call Us
           </h3>
           <ul className="space-y-3 font-body text-sm">
             {RETAIL_PHONES.map(({ label, href }) => (
               <li key={href} className="flex items-center gap-2">
-                <Phone size={14} className="text-gold-light shrink-0" />
-                <a href={href} className="hover:text-cream transition-colors">
+                <Phone size={14} className="text-wine shrink-0" />
+                <a href={href} className="hover:text-wine transition-colors">
                   {label}
                 </a>
               </li>
@@ -116,19 +113,19 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="border-t border-cream/10">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 py-6 flex flex-col lg:flex-row items-center justify-between gap-4 font-body text-xs text-cream/50">
+      <div className="border-t border-charcoal/10">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 py-6 flex flex-col lg:flex-row items-center justify-between gap-4 font-body text-xs text-charcoal/60">
           <p className="text-center lg:text-left">
             © {year} {BRAND_NAME}. All rights reserved.
           </p>
           <ul className="flex flex-wrap items-center justify-center gap-5 sm:gap-6">
             <li>
-              <Link to="/b2b" className="hover:text-cream transition-colors">
+              <Link to="/b2b" className="hover:text-wine transition-colors">
                 Wholesale
               </Link>
             </li>
             <li>
-              <Link to="/b2c" className="hover:text-cream transition-colors">
+              <Link to="/b2c" className="hover:text-wine transition-colors">
                 Shop Direct
               </Link>
             </li>
@@ -139,7 +136,7 @@ export default function Footer() {
               href="https://www.koworks.tech/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold-light hover:text-cream transition-colors font-medium"
+              className="text-wine hover:text-wine-dark transition-colors font-medium"
             >
               koworks
             </a>

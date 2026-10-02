@@ -636,7 +636,7 @@ export default function B2CPage() {
           HOW TO ORDER
       ===================================================== */}
 
-      <section className="relative bg-charcoal py-24 sm:py-32 overflow-hidden">
+      <section className="relative bg-[#F6F1E7] py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img
             src="/img12.avif"
@@ -646,14 +646,13 @@ export default function B2CPage() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/97 to-charcoal" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F6F1E7] via-[#F6F1E7]/97 to-[#F6F1E7]" />
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
           <SectionHeading
             eyebrow="How to Order"
             title="Ordering is Simple — Just WhatsApp Us"
             description="No website checkout, no complicated process. Direct from manufacturer to you, via WhatsApp."
-            tone="light"
           />
 
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
@@ -678,17 +677,17 @@ export default function B2CPage() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
               >
-                <div className="font-display text-5xl text-gold/25 leading-none mb-4">
+                <div className="font-display text-5xl text-wine/25 leading-none mb-4">
                   {step.number}
                 </div>
 
                 <ZariDivider className="max-w-[40px] mb-5" />
 
-                <h3 className="font-display text-2xl text-cream">
+                <h3 className="font-display text-2xl text-wine-dark">
                   {step.title}
                 </h3>
 
-                <p className="mt-3 font-body text-sm text-cream/65 leading-relaxed">
+                <p className="mt-3 font-body text-sm text-charcoal/70 leading-relaxed">
                   {step.description}
                 </p>
               </motion.div>
@@ -702,7 +701,7 @@ export default function B2CPage() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-sm bg-gold-light text-wine-dark px-8 py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream transition-colors"
+              className="inline-flex items-center gap-2 rounded-sm bg-wine-dark text-cream px-8 py-4 font-body text-sm font-semibold tracking-wide hover:bg-wine transition-colors"
             >
               <MessageCircle size={16} />
               Start Your Order on WhatsApp
@@ -824,7 +823,7 @@ export default function B2CPage() {
           FINAL CTA
       ===================================================== */}
 
-      <section className="relative bg-wine-dark py-24 sm:py-32 overflow-hidden">
+      <section className="relative bg-[#F6F1E7] py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img
             src="/img14.png"
@@ -834,7 +833,7 @@ export default function B2CPage() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-wine-dark/80 via-wine-dark to-wine-dark" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F6F1E7]/80 via-[#F6F1E7] to-[#F6F1E7]" />
 
         <div className="relative mx-auto max-w-4xl px-5 sm:px-8 text-center">
           <motion.div
@@ -854,17 +853,17 @@ export default function B2CPage() {
               duration: 0.7,
             }}
           >
-            <Eyebrow tone="gold" className="justify-center">
+            <Eyebrow tone="wine" className="justify-center">
               Ready to Order?
             </Eyebrow>
 
-            <h2 className="mt-5 font-display font-medium text-cream text-balance leading-[1.05] text-4xl sm:text-5xl lg:text-6xl">
+            <h2 className="mt-5 font-display font-medium text-wine-dark text-balance leading-[1.05] text-4xl sm:text-5xl lg:text-6xl">
               She'll Love It. We'll Make Sure of It.
             </h2>
 
             <ZariDivider className="max-w-[140px] mx-auto mt-8" />
 
-            <p className="mt-8 mx-auto max-w-2xl font-body text-base sm:text-lg text-cream/80 leading-relaxed">
+            <p className="mt-8 mx-auto max-w-2xl font-body text-base sm:text-lg text-charcoal/80 leading-relaxed">
               Message us on WhatsApp with the occasion, her age and any colour
               preferences — we'll help you find the perfect Pattu Pavada or
               Pattu Langa for her.
@@ -877,7 +876,7 @@ export default function B2CPage() {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-sm bg-gold-light text-wine-dark px-8 py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-sm bg-wine-dark text-cream px-8 py-4 font-body text-sm font-semibold tracking-wide hover:bg-wine transition-colors"
               >
                 <MessageCircle size={16} />
                 Order on WhatsApp
@@ -889,14 +888,14 @@ export default function B2CPage() {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-sm border border-cream/50 text-cream px-8 py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream/10 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-sm border border-wine-dark/50 text-wine-dark px-8 py-4 font-body text-sm font-semibold tracking-wide hover:bg-wine-dark/10 transition-colors"
               >
                 <ShoppingBag size={16} />
                 See Latest Collection
               </a>
             </div>
 
-            <p className="mt-8 font-body text-xs text-cream/45">
+            <p className="mt-8 font-body text-xs text-charcoal/50">
               We typically respond within a few hours. All orders are confirmed
               on WhatsApp before payment.
             </p>
