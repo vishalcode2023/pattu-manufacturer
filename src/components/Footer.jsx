@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+﻿import { Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BRAND_NAME, CONTACT, RETAIL_COUNTER } from "../config/site";
 import { ZariDivider, InstagramGlyph } from "./Decorative";
@@ -72,6 +72,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link to="/blog" className="hover:text-wine transition-colors">
+                Blog
+              </Link>
+            </li>
+            <li>
               <Link to="/contact" className="hover:text-wine transition-colors">
                 Contact Us
               </Link>
@@ -116,7 +121,7 @@ export default function Footer() {
       <div className="border-t border-charcoal/10">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 py-6 flex flex-col lg:flex-row items-center justify-between gap-4 font-body text-xs text-charcoal/60">
           <p className="text-center lg:text-left">
-            © {year} {BRAND_NAME}. All rights reserved.
+            Â© {year} {BRAND_NAME}. All rights reserved.
           </p>
           <ul className="flex flex-wrap items-center justify-center gap-5 sm:gap-6">
             <li>
@@ -146,3 +151,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+

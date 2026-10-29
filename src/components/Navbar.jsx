@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { label: "Home", to: "/" },
   { label: "Wholesale (B2B)", to: "/b2b" },
   { label: "Shop (B2C)", to: "/b2c" },
+  { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -68,7 +69,7 @@ export default function Navbar({ variant = "dark" }) {
           to="/"
           onClick={handleNavClick}
           className="flex items-center gap-3 leading-none group"
-          aria-label={`${BRAND_NAME} — home`}
+          aria-label={`${BRAND_NAME} â€” home`}
         >
           {/* Logo */}
           <img
@@ -186,3 +187,4 @@ export default function Navbar({ variant = "dark" }) {
     </header>
   );
 }
+
