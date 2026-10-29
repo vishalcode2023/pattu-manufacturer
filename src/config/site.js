@@ -8,7 +8,13 @@ export const BRAND_NAME = "Pattu Pavadas";
 export const BRAND_TAGLINE =
   "Pattu Pavada & Pattu Langa Manufacturer";
 
-export const SITE_URL = "https://YOUR_DOMAIN.com";
+// Set VITE_SITE_URL (or SITE_URL at build time) to your live domain, e.g.
+// VITE_SITE_URL=https://www.pattupavadas.com  — no trailing slash.
+export const SITE_URL = (
+  (typeof import.meta !== "undefined" && import.meta.env?.VITE_SITE_URL) ||
+  (typeof process !== "undefined" && process.env?.SITE_URL) ||
+  "https://YOUR_DOMAIN.com"
+).replace(/\/+$/, "");
 
 // ---------------------------------------------------------------------------
 // CONTACT DETAILS
