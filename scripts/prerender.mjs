@@ -67,6 +67,7 @@ if (!startRe.test(template)) throw new Error("SEO markers missing in dist/index.
 const placeholder = /https:\/\/YOUR_DOMAIN\.com/g;
 
 for (const path of Object.keys(ROUTES)) {
+  const url = absUrl(path);
   let html = template.replace(
     startRe,
     `<!--SEO_HEAD_START-->\n    ${headFor(path)}\n    <!--SEO_HEAD_END-->`,
