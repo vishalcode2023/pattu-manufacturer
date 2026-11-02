@@ -5,7 +5,7 @@
 //  2. writes dist/sitemap.xml and dist/robots.txt (using the live domain);
 //  3. writes dist/404.html (SPA fallback with noindex).
 //
-// Usage:  SITE_URL=https://www.yourdomain.com npm run build
+// Usage:  SITE_URL=https://pattupavadas.com npm run build
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 
