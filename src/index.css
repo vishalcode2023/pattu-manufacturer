@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: "Noto Sans Display";
-  src: url("./fonts/Noto_Sans_Display/static/NotoSansDisplay-Regular.ttf")
+  src: url("./fonts/Noto_Sans_Display,Roboto/Noto_Sans_Display/static/NotoSansDisplay-Regular.ttf")
     format("truetype");
   font-weight: 400;
   font-style: normal;
@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: "Noto Sans Display";
-  src: url("./fonts/Noto_Sans_Display/static/NotoSansDisplay-Medium.ttf")
+  src: url("./fonts/Noto_Sans_Display,Roboto/Noto_Sans_Display/static/NotoSansDisplay-Medium.ttf")
     format("truetype");
   font-weight: 500;
   font-style: normal;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: "Noto Sans Display";
-  src: url("./fonts/Noto_Sans_Display/static/NotoSansDisplay-SemiBold.ttf")
+  src: url("./fonts/Noto_Sans_Display,Roboto/Noto_Sans_Display/static/NotoSansDisplay-SemiBold.ttf")
     format("truetype");
   font-weight: 600;
   font-style: normal;
@@ -33,7 +33,7 @@
 
 @font-face {
   font-family: "Noto Sans Display";
-  src: url("./fonts/Noto_Sans_Display/static/NotoSansDisplay-Bold.ttf")
+  src: url("./fonts/Noto_Sans_Display,Roboto/Noto_Sans_Display/static/NotoSansDisplay-Bold.ttf")
     format("truetype");
   font-weight: 700;
   font-style: normal;
@@ -42,7 +42,7 @@
 
 @font-face {
   font-family: "Roboto";
-  src: url("./fonts/Roboto/static/Roboto-Regular.ttf")
+  src: url("./fonts/Noto_Sans_Display,Roboto/Roboto/static/Roboto-Regular.ttf")
     format("truetype");
   font-weight: 400;
   font-style: normal;
@@ -51,7 +51,7 @@
 
 @font-face {
   font-family: "Roboto";
-  src: url("./fonts/Roboto/static/Roboto-Medium.ttf")
+  src: url("./fonts/Noto_Sans_Display,Roboto/Roboto/static/Roboto-Medium.ttf")
     format("truetype");
   font-weight: 500;
   font-style: normal;
@@ -60,7 +60,7 @@
 
 @font-face {
   font-family: "Roboto";
-  src: url("./fonts/Roboto/static/Roboto-Bold.ttf")
+  src: url("./fonts/Noto_Sans_Display,Roboto/Roboto/static/Roboto-Bold.ttf")
     format("truetype");
   font-weight: 700;
   font-style: normal;
