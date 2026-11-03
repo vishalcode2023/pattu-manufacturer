@@ -13,6 +13,7 @@ import {
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import LazyVideo from "./LazyVideo";
 import { Eyebrow, SectionHeading, ZariDivider } from "../components/Decorative";
 
 import { getWhatsAppLink } from "../config/site";
@@ -258,8 +259,13 @@ export default function B2CPage() {
             >
               <img
                 src={HERO_IMAGES[heroIndex]}
-                alt="Pattu Pavada and Pattu Langa collection"
+                alt="Pattu pavada and pattu langa collection for wholesale buyers"
                 className="w-full h-full object-cover object-center"
+                width="1200"
+                height="1600"
+                loading={heroIndex === 0 ? "eager" : "lazy"}
+                decoding="async"
+                fetchPriority={heroIndex === 0 ? "high" : undefined}
               />
             </motion.div>
           </AnimatePresence>
@@ -373,7 +379,7 @@ export default function B2CPage() {
                 drop-shadow-[0_3px_8px_rgba(0,0,0,0.55)]
               "
             >
-              Dress Her in
+              Wholesale Pattu Pavada
               <br />
               <span
                 className="
@@ -381,11 +387,7 @@ export default function B2CPage() {
                   drop-shadow-[0_3px_8px_rgba(0,0,0,0.55)]
                 "
               >
-                Pure Tradition.
-              </span>
-            <span className="sr-only">
-                {" "}
-                — Wholesale Pattu Pavada &amp; Pattu Langa Manufacturer for Boutiques
+                for Boutiques
               </span>
             </motion.h1>
 
@@ -416,8 +418,9 @@ export default function B2CPage() {
                 drop-shadow-[0_2px_5px_rgba(0,0,0,0.7)]
               "
             >
-              Discover beautifully crafted Pattu Pavada, Pattu Langa and
-              traditional South Indian ethnic wear, made with care in Mysuru.
+              Source pattu pavada, pattu pavadai and pattu langa from our
+              manufacturing unit, with wholesale supply for
+              boutiques across India.
             </motion.p>
 
             {/* BUTTONS */}
@@ -619,6 +622,9 @@ export default function B2CPage() {
                   <img
                     src={product.image}
                     alt={product.title}
+                    width="1080"
+                    height="1350"
+                    decoding="async"
                     className="
                       w-full
                       h-full
@@ -887,6 +893,10 @@ export default function B2CPage() {
             alt=""
             className="w-full h-full object-cover"
             aria-hidden="true"
+            width="1122"
+            height="1120"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -899,17 +909,13 @@ export default function B2CPage() {
             {/* ============================================================ */}
 
             <div className="relative w-full h-[500px] lg:h-[760px] overflow-hidden">
-              <video
+              <LazyVideo
                 className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-hidden="true"
-              >
-                <source src="/56.mp4" type="video/mp4" />
-              </video>
+                poster="/img13.avif"
+                width={1200}
+                height={1600}
+                src="/56.mp4"
+              />
 
               {/* Decorative frame */}
 
@@ -1018,10 +1024,14 @@ export default function B2CPage() {
       <section className="relative bg-[#F6F1E7] py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-15">
           <img
-            src="/img14.png"
+            src="/img14.webp"
             alt=""
             className="w-full h-full object-cover"
             aria-hidden="true"
+            width="1122"
+            height="1402"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

@@ -5,11 +5,11 @@ import MainRouter from "./Router/MainRouter";
 import SocialPopup from "./components/SocialPopup";
 import Seo from "./components/Seo";
 
-export default function App() {
+export default function App({ prerenderBlogPost }) {
   return (
     <div className="min-h-screen bg-ivory">
       <Seo />
-      <MainRouter/>
+      <MainRouter prerenderBlogPost={prerenderBlogPost} />
       <SocialPopup />
     </div>
   );

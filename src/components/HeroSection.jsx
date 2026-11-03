@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { IMAGES } from "../config/images";
 import { getWhatsAppLink } from "../config/site";
 import { Eyebrow } from "./Decorative";
 
@@ -80,9 +79,12 @@ export default function HeroSection() {
               <source media="(max-width: 639px)" srcSet={mobile} />
               <img
                 src={desktop}
-                alt={IMAGES.hero.alt}
+                alt="Girl wearing a red pattu pavada at a traditional South Indian temple"
                 className="w-full h-full object-cover object-center"
-                fetchPriority={i === 0 ? "high" : "auto"}
+                width="1758"
+                height="895"
+                decoding="async"
+                fetchPriority={i === 0 ? "high" : undefined}
                 loading={i === 0 ? "eager" : "lazy"}
               />
             </picture>
@@ -162,7 +164,7 @@ export default function HeroSection() {
 
       {/* ================= HERO CONTENT ================= */}
       <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-8 pb-14 sm:pb-20 pt-32 sm:pt-40">
-        <div className="max-w-3xl -translate-y-8 sm:-translate-y-25">
+        <div className="max-w-3xl translate-y-2 sm:translate-y-2">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -188,13 +190,9 @@ export default function HeroSection() {
             }}
             className="mt-7 sm:mt-16 font-display font-medium text-cream leading-[1.02] text-balance text-2xl sm:text-5xl lg:text-6xl xl:text-6xl"
           >
-            Crafted in Tradition
+            Pattu Pavada Manufacturer
             <br />
-            Manufactured for the World
-            <span className="sr-only">
-              {" "}
-              — Pattu Pavada, Pattu Langa &amp; Langa Blouse Manufacturer in Mysuru
-            </span>
+            serving Customers Across India
           </motion.h1>
 
           {/* Description */}
@@ -207,8 +205,8 @@ export default function HeroSection() {
             }}
             className="mt-4 sm:mt-7 font-body text-cream/85 text-[13px] sm:text-lg leading-relaxed max-w-xl"
           >
-            Premium Pattu Pavada, Pattu Langa &amp; Blouses, crafted in Mysuru
-            for India and the world.
+            Pattu pavada, also called pattu pavadai, paavadai or pattu langa,
+            made for families and boutiques across India, with delivery nationwide.
           </motion.p>
 
           {/* Buttons */}

@@ -168,6 +168,12 @@ body {
   color: var(--color-wine-dark);
 }
 
+.no-js #root [style*="opacity"],
+.no-js #root [style*="transform"] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 
 /* =========================================================
    TEXT BALANCE

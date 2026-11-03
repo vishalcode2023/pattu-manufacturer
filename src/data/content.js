@@ -20,21 +20,21 @@ import {
 export const REGIONAL_NAMES = [
   {
     region: "Karnataka",
-    names: ["Uddalanga", "Langa Blouse"],
+    names: ["Uddalanga", "Langa Blouse", "ಪಟ್ಟು ಲಂಗ"],
     description:
-      "Across Karnataka, this traditional silk skirt-and-blouse set for young girls is known as Uddalanga, with the blouse referred to as a Langa Blouse.",
+      "Across Karnataka, this traditional girls' skirt-and-blouse set is known as Uddalanga or langa blouse; Kannada speakers also search for ಪಟ್ಟು ಲಂಗ.",
   },
   {
     region: "Andhra Pradesh & Telangana",
-    names: ["Pattu Langa"],
+    names: ["Pattu Langa", "పట్టు లంగా"],
     description:
-      "In Andhra Pradesh and Telangana, the same garment tradition is called Pattu Langa, worn for weddings, festivals and family celebrations.",
+      "In Andhra Pradesh and Telangana, the same garment is called pattu langa (పట్టు లంగా), worn for weddings, festivals and family celebrations.",
   },
   {
     region: "Tamil Nadu",
-    names: ["Pattu Pavada"],
+    names: ["Pattu Pavada", "Pattu Pavadai", "பட்டு பாவாடை"],
     description:
-      "In Tamil Nadu, it is known as Pattu Pavada — a silk pavada paired with a fitted blouse, a staple of South Indian celebration wear.",
+      "In Tamil Nadu, pattu pavada or pattu pavadai (பட்டு பாவாடை) is a festive skirt paired with a blouse.",
   },
 ];
 

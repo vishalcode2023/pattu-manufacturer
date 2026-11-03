@@ -5,24 +5,26 @@
 // Keep this file free of JSX / browser-only APIs so Node can import it.
 // ---------------------------------------------------------------------------
 
-import { SITE_URL } from "./site.js";
+import { CONTACT, RETAIL_COUNTER, SITE_URL } from "./site.js";
+import { BLOG_POST_METADATA } from "../data/blogPostMetadata.js";
 
 export const SITE_NAME = "Pattu Pavadas";
 export const LEGAL_NAME = "Pattu Pavadas – Ethnic Collections";
-export const DEFAULT_OG_IMAGE = "/Landing_Page.avif"; // replace with a 1200x630 JPG/PNG for best social previews
+export const DEFAULT_OG_IMAGE = "/og-pattu-pavadas.jpg";
 export const LOGO = "/logo.png";
 
 export const BUSINESS = {
-  phone: "+919916760001",
-  altPhones: ["+919739606361", "+919972566518", "+918212413045"],
-  email: "ethniccollections2011@gmail.com",
-  instagram:
-    "https://www.instagram.com/ethnic_collections_kdroad?stkn=ZTdyYjd0b3NmOHZ6",
+  phone: `+${CONTACT.whatsappNumber}`,
+  email: CONTACT.email,
+  instagram: CONTACT.instagramUrl,
   address: {
-    streetAddress:
-      "Shop No. 1 & 2, Sri Kuvempu Vidhyavardhaka Trust, Kalidasa Road, Jayalakshmipuram",
-    addressLocality: "Mysuru",
-    addressRegion: "Karnataka",
+    streetAddress: RETAIL_COUNTER.addressLines
+      .slice(0, 3)
+      .join(" ")
+      .replace(/,\s*/g, ", ")
+      .replace(/,\s*$/, ""),
+    addressLocality: RETAIL_COUNTER.city,
+    addressRegion: RETAIL_COUNTER.state,
     postalCode: "570012",
     addressCountry: "IN",
   },
@@ -65,10 +67,7 @@ export const KEYWORDS = {
     "pattu pavada exporter",
     "south indian ethnic wear exporter",
     "kids ethnic wear manufacturer India",
-    "pattu pavada manufacturer in Mysore",
-    "pattu pavada wholesale Mysore",
-    "pattu pavada wholesale Karnataka",
-    "pattu pavada wholesale Bangalore",
+    "pattu pavada wholesale India",
     "custom pattu pavada manufacturing",
     "private label kids ethnic wear",
   ],
@@ -90,21 +89,26 @@ export const KEYWORDS = {
     "pattu pavada price",
     "pattu pavada near me",
   ],
-  local: [
-    "pattu pavada Mysore",
-    "pattu pavada Mysuru",
-    "ethnic wear manufacturer Mysore",
-    "ethnic collections Mysore",
-    "kids ethnic wear Mysore",
-    "Kalidasa Road Mysore ethnic wear",
-    "Jayalakshmipuram Mysore boutique",
-    "pattu pavada shop in Mysore",
-    "traditional wear shop Mysore",
+  national: [
+    "pattu pavada manufacturer India",
+    "pattu pavada wholesale India",
+    "kids ethnic wear supplier India",
+    "traditional girls wear delivery across India",
   ],
 };
 
+const KEYWORD_VARIANTS = [
+  "pavada",
+  "pavadai",
+  "paavadai",
+  "pattu lehenga",
+  "half saree",
+  "பட்டு பாவாடை",
+  "ಪಟ್ಟು ಲಂಗ",
+  "పట్టు లంగా",
+];
 const uniq = (a) => [...new Set(a)];
-const kw = (...groups) => uniq(groups.flat()).join(", ");
+const kw = (...groups) => uniq([...groups.flat(), ...KEYWORD_VARIANTS]).join(", ");
 
 // ---------------------------------------------------------------------------
 // PER-ROUTE SEO
@@ -112,24 +116,27 @@ const kw = (...groups) => uniq(groups.flat()).join(", ");
 
 export const ROUTES = {
   "/": {
-    title:
-      "Pattu Pavada Manufacturer in Mysuru | Pattu Pavadas",
+    primaryKeyword: "pattu pavada manufacturer India",
+    preloadImage: "/Landing_Page.avif",
+    preloadImageMobile: "/Landing_Pagemob.avif",
+    title: "Pattu Pavada Manufacturer & Wholesale Supplier Across India | Pattu Pavadas",
     description:
-      "Shop girls' pattu pavada, pattu langa and langa blouse from our Mysuru unit. Wholesale, bulk and export supply; visit Ethnic Collections.",
+      "Pattu pavada manufacturer supplying pattu langa and girls' festive wear across India. Explore retail, wholesale and bulk orders from Ethnic Collections.",
     keywords: kw(
       KEYWORDS.core,
       KEYWORDS.wholesale.slice(0, 10),
-      KEYWORDS.local.slice(0, 4),
+      KEYWORDS.national.slice(0, 4),
     ),
     changefreq: "weekly",
     priority: "1.0",
     breadcrumb: [["Home", "/"]],
   },
   "/b2b": {
-    title:
-      "Pattu Pavada Wholesale Supplier & Manufacturer | India",
+    primaryKeyword: "pattu pavada wholesale",
+    preloadImage: "/whole1.avif",
+    title: "Pattu Pavada Wholesale | Ethnic Collections",
     description:
-      "Order pattu pavada, pattu langa and langa blouse wholesale direct from our Mysuru unit. MOQ from 10 pieces, mixed styles, bulk orders and export support.",
+      "Source pattu pavada wholesale direct from our manufacturing unit. Ask about current MOQ, mixed styles, bulk orders and delivery across India.",
     keywords: kw(KEYWORDS.wholesale, KEYWORDS.core.slice(0, 8)),
     changefreq: "weekly",
     priority: "0.9",
@@ -139,10 +146,11 @@ export const ROUTES = {
     ],
   },
   "/b2c": {
-    title:
-      "Buy Pattu Pavada for Girls Online | Pattu Langa",
+    primaryKeyword: "pattu pavada for girls",
+    preloadImage: "/g5.avif",
+    title: "Pattu Pavada for Girls | Pattu Pavadas",
     description:
-      "Shop girls' pattu pavada and pattu langa sets from a Mysuru maker. Find festive designs for weddings, birthdays and festivals; enquire and order on WhatsApp.",
+      "Explore pattu pavada, pattu pavadai and pattu langa for girls. Explore festive designs and enquire about sizes and delivery anywhere in India.",
     keywords: kw(KEYWORDS.retail, KEYWORDS.core.slice(0, 10)),
     changefreq: "weekly",
     priority: "0.9",
@@ -152,10 +160,10 @@ export const ROUTES = {
     ],
   },
   "/collection": {
-    title:
-      "Pattu Pavada & Pattu Langa Designs | Girls' Collection",
+    primaryKeyword: "pattu langa collection",
+    title: "Pattu Langa & Pattu Pavada Collection",
     description:
-      "Explore pattu pavada, pattu langa, langa blouse, uddalanga and langa davani designs for girls. Traditional South Indian festive wear made in Mysuru.",
+      "Explore pattu pavada, pattu langa and pavadai sattai styles for girls. South Indian festive wear, delivered to customers across India.",
     keywords: kw(KEYWORDS.core, KEYWORDS.retail.slice(0, 8)),
     changefreq: "weekly",
     priority: "0.8",
@@ -165,16 +173,16 @@ export const ROUTES = {
     ],
   },
   "/manufacturing": {
-    title:
-      "Pattu Pavada Manufacturer & Production in Mysuru",
+    primaryKeyword: "pattu pavada manufacturing India",
+    title: "Pattu Pavada Manufacturing & Supply Across India",
     description:
-      "Discover how our Mysuru team makes pattu pavada, pattu langa and langa blouse sets, from fabric selection and stitching to finishing and quality checks.",
+      "See how we make pattu pavada, pattu langa and langa blouse sets, from fabric selection through finishing and quality checks, for customers across India.",
     keywords: kw(
       [
         "pattu pavada manufacturing",
-        "ethnic wear manufacturing unit Mysore",
+        "ethnic wear manufacturing India",
         "kids ethnic wear factory India",
-        "garment manufacturer Mysuru",
+        "garment manufacturer India",
         "custom ethnic wear manufacturing",
         "private label pavada manufacturer",
       ],
@@ -188,10 +196,10 @@ export const ROUTES = {
     ],
   },
   "/blog": {
-    title:
-      "Pattu Pavada Style & Care Guide | Pattu Pavadas",
+    primaryKeyword: "pattu pavada guides",
+    title: "Pattu Pavada Guides: Style, Fit & Care",
     description:
-      "Learn how to choose, style and care for pattu pavada and pattu langa. Explore wedding and festival looks and practical sourcing tips for boutiques.",
+      "Read practical pattu pavada guides on girls' sizing, festival styling, silk care, prices and wholesale buying for boutiques.",
     keywords: kw(
       [
         "pattu pavada guide",
@@ -205,25 +213,25 @@ export const ROUTES = {
     ),
     changefreq: "monthly",
     priority: "0.6",
-    ogType: "article",
+    ogType: "website",
     breadcrumb: [
       ["Home", "/"],
       ["Blog", "/blog"],
     ],
   },
   "/contact": {
-    title:
-      "Contact Pattu Pavada Manufacturer in Mysuru",
+    primaryKeyword: "pattu pavada online India",
+    title: "Pattu Pavada Manufacturer & Online Orders Across India",
     description:
-      "Contact Pattu Pavadas at Ethnic Collections, Kalidasa Road, Mysuru. Call or WhatsApp 9916760001 for retail, wholesale, bulk and export enquiries.",
+      "Order pattu pavada from Ethnic Collections with retail and wholesale delivery across India. Call or WhatsApp 9916760001 to enquire.",
     keywords: kw(
       [
         "pattu pavada manufacturer contact",
         "pattu pavada wholesale contact number",
-        "ethnic collections Mysore contact",
+        "pattu pavada orders India",
         "pattu pavada WhatsApp order",
       ],
-      KEYWORDS.local,
+      KEYWORDS.national,
     ),
     changefreq: "yearly",
     priority: "0.6",
@@ -232,6 +240,32 @@ export const ROUTES = {
       ["Contact", "/contact"],
     ],
   },
+  ...Object.fromEntries(
+    BLOG_POST_METADATA.map((post) => {
+      const path = `/blog/${post.slug}`;
+      return [
+        path,
+        {
+          primaryKeyword: post.primaryKeyword,
+          title: post.title,
+          description: post.description,
+          keywords: kw(
+            [post.primaryKeyword, "pattu pavada", "pattu pavadai", "pattu langa"],
+            KEYWORDS.national.slice(0, 2),
+          ),
+          changefreq: "monthly",
+          priority: "0.5",
+          ogType: "article",
+          breadcrumb: [
+            ["Home", "/"],
+            ["Pattu Pavada Guides", "/blog"],
+            [post.title, path],
+          ],
+          article: post,
+        },
+      ];
+    }),
+  ),
 };
 
 // ---------------------------------------------------------------------------
@@ -241,7 +275,7 @@ export const ROUTES = {
 export const FAQS = [
   {
     q: "Are you a pattu pavada manufacturer or a reseller?",
-    a: "We are a direct manufacturer based in Mysuru, Karnataka. We make pattu pavada, pattu langa and langa blouse sets in-house and supply boutiques, wholesalers, exporters and individual customers without middlemen.",
+    a: "We are a direct manufacturer in India. We make pattu pavada, pattu langa and langa blouse sets in-house and supply boutiques, wholesalers, exporters and individual customers across India without middlemen.",
   },
   {
     q: "What is the minimum order quantity (MOQ) for wholesale pattu pavada?",
@@ -268,7 +302,7 @@ export const FAQS = [
     a: "Starter orders are typically dispatched in 5–7 days and wholesale orders in 3–5 days, depending on stock and customisation.",
   },
   {
-    q: "Where can I buy pattu pavada in Mysuru?",
+    q: "Can I visit your retail counter?",
     a: "Visit our retail counter, Ethnic Collections, at Shop No. 1 & 2, Kalidasa Road, Jayalakshmipuram, Mysuru – 570012, or order online through WhatsApp.",
   },
 ];
@@ -284,7 +318,7 @@ export const absAsset = (path) =>
   /^https?:\/\//.test(path) ? path : `${SITE_URL}${path}`;
 
 export function getRouteSeo(path) {
-  return ROUTES[path] || ROUTES["/"];
+  return ROUTES[path] || null;
 }
 
 // --- schema builders -------------------------------------------------------
@@ -294,12 +328,15 @@ export const organizationSchema = () => ({
   "@type": ["ClothingStore", "LocalBusiness"],
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
-  alternateName: [LEGAL_NAME, "Ethnic Collections Mysore"],
+  alternateName: [LEGAL_NAME],
   url: SITE_URL + "/",
+  hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    `${BUSINESS.address.streetAddress}, ${BUSINESS.address.addressLocality}, ${BUSINESS.address.addressRegion} ${BUSINESS.address.postalCode}, India`,
+  )}`,
   logo: absAsset(LOGO),
   image: absAsset(DEFAULT_OG_IMAGE),
   description:
-    "Manufacturer of pattu pavada, pattu langa and langa blouse (uddalanga, langa davani) traditional South Indian ethnic wear for girls. Wholesale, bulk, export and retail from Mysuru, Karnataka.",
+    "Manufacturer of pattu pavada, pattu langa and langa blouse (uddalanga, langa davani) traditional South Indian ethnic wear for girls. Wholesale, bulk, export and retail supply across India.",
   telephone: BUSINESS.phone,
   email: BUSINESS.email,
   priceRange: "₹₹",
@@ -387,14 +424,6 @@ export const productListSchema = () => ({
       description,
       brand: { "@type": "Brand", name: SITE_NAME },
       image: absAsset(DEFAULT_OG_IMAGE),
-      offers: {
-        "@type": "AggregateOffer",
-        priceCurrency: "INR",
-        lowPrice: "380",
-        highPrice: "650",
-        availability: "https://schema.org/InStock",
-        seller: { "@id": `${SITE_URL}/#organization` },
-      },
     },
   })),
 });
@@ -422,6 +451,9 @@ export function schemasFor(path) {
   if (r.breadcrumb && r.breadcrumb.length > 1) out.push(breadcrumbSchema(r.breadcrumb));
   if (path === "/") out.push(faqSchema(), productListSchema());
   if (path === "/collection" || path === "/b2c" || path === "/b2b") out.push(productListSchema());
-  if (path === "/blog") out.push(articleSchema(path));
+  if (r.article) {
+    out.push(articleSchema(path));
+    out.push(faqSchema(r.article.faqs));
+  }
   return out;
 }

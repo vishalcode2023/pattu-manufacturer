@@ -8,6 +8,10 @@
 // Usage:  SITE_URL=https://pattupavadas.com npm run build
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { createElement } from "react";
+import { renderToString } from "react-dom/server";
+import { MemoryRouter } from "react-router-dom";
+import { createServer } from "vite";
 
 // load SITE_URL / VITE_SITE_URL from .env if not already in the environment
 const envFile = new URL("../.env", import.meta.url);
@@ -27,9 +31,23 @@ const { ROUTES, SITE_NAME, DEFAULT_OG_IMAGE, absUrl, absAsset, schemasFor } =
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = join(root, "dist");
 const template = readFileSync(join(dist, "index.html"), "utf8");
+const rootRe = /<div id="root"><\/div>/;
+const preloadRe = /<!--PRERENDER_PRELOAD_START-->[\s\S]*?<!--PRERENDER_PRELOAD_END-->/;
+const vite = await createServer({
+  configFile: join(root, "vite.config.js"),
+  server: { middlewareMode: true },
+  appType: "custom",
+  logLevel: "error",
+});
+const { default: App } = await vite.ssrLoadModule("/src/App.jsx");
+const { default: BlogPost } = await vite.ssrLoadModule("/src/pages/BlogPost.jsx");
 
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+
+function renderHtml(element) {
+  return renderToString(element);
+}
 
 function headFor(path) {
   const r = ROUTES[path];
@@ -48,11 +66,25 @@ function headFor(path) {
     `<meta property="og:title" content="${esc(r.title)}" />`,
     `<meta property="og:description" content="${esc(r.description)}" />`,
     `<meta property="og:image" content="${img}" />`,
-    `<meta property="og:image:alt" content="${esc(SITE_NAME)} – pattu pavada &amp; pattu langa manufacturer" />`,
+    `<meta property="og:image:width" content="1200" />`,
+    `<meta property="og:image:height" content="630" />`,
+    `<meta property="og:image:type" content="image/jpeg" />`,
+    `<meta property="og:image:alt" content="${esc(SITE_NAME)} - pattu pavada and pattu langa manufacturer" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${esc(r.title)}" />`,
     `<meta name="twitter:description" content="${esc(r.description)}" />`,
     `<meta name="twitter:image" content="${img}" />`,
+    `<meta name="twitter:image:alt" content="${esc(SITE_NAME)} pattu pavada collection" />`,
+    ...(r.preloadImageMobile
+      ? [
+          `<link rel="preload" as="image" href="${absAsset(r.preloadImage)}" media="(min-width: 640px)" fetchpriority="high" />`,
+          `<link rel="preload" as="image" href="${absAsset(r.preloadImageMobile)}" media="(max-width: 639px)" fetchpriority="high" />`,
+        ]
+      : r.preloadImage
+        ? [
+            `<link rel="preload" as="image" href="${absAsset(r.preloadImage)}" fetchpriority="high" />`,
+          ]
+        : []),
     ...schemasFor(path).map(
       (s) =>
         `<script type="application/ld+json">${JSON.stringify(s).replace(/</g, "\\u003c")}</script>`,
@@ -64,30 +96,48 @@ function headFor(path) {
 const startRe = /<!--SEO_HEAD_START-->[\s\S]*?<!--SEO_HEAD_END-->/;
 if (!startRe.test(template)) throw new Error("SEO markers missing in dist/index.html");
 
-const placeholder = /https:\/\/YOUR_DOMAIN\.com/g;
-
 for (const path of Object.keys(ROUTES)) {
   const url = absUrl(path);
+  const body = await renderHtml(
+    createElement(
+      MemoryRouter,
+      { initialEntries: [path] },
+      createElement(App, { prerenderBlogPost: BlogPost }),
+    ),
+  );
   let html = template.replace(
     startRe,
     `<!--SEO_HEAD_START-->\n    ${headFor(path)}\n    <!--SEO_HEAD_END-->`,
   );
-  html = html.replace(placeholder, SITE_URL); // hreflang links
+  html = html.replace(preloadRe, "");
   html = html.replace(
     /(<link rel="alternate" hreflang="(?:en-IN|x-default)" href=")[^"]*(" \/>)/g,
     `$1${url}$2`,
   );
+  html = html.replace(rootRe, `<div id="root">${body}</div>`);
   const out = path === "/" ? join(dist, "index.html") : join(dist, path, "index.html");
   if (path !== "/") mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, html);
 }
 
 // 404 fallback (SPA) — noindex so it never ranks
+const notFoundBody = await renderHtml(
+  createElement(
+    MemoryRouter,
+    { initialEntries: ["/404"] },
+    createElement(App, { prerenderBlogPost: BlogPost }),
+  ),
+);
+const noIndexHead =
+  '<title>Page not found | Pattu Pavadas</title>\n    <meta name="robots" content="noindex, follow" />';
 writeFileSync(
   join(dist, "404.html"),
   template
-    .replace(startRe, '<title>Page not found | Pattu Pavadas</title>\n    <meta name="robots" content="noindex, follow" />')
-    .replace(placeholder, SITE_URL),
+    .replace(startRe, noIndexHead)
+    .replace(preloadRe, "")
+    .replace(/<link rel="canonical"[^>]*\/>/, "")
+    .replace(/<link rel="alternate"[^>]*\/>/g, "")
+    .replace(rootRe, `<div id="root">${notFoundBody}</div>`),
 );
 
 // sitemap.xml
@@ -116,3 +166,4 @@ writeFileSync(
 console.log(`SEO: pre-rendered ${Object.keys(ROUTES).length} routes, sitemap.xml, robots.txt  (SITE_URL=${SITE_URL})`);
 if (/YOUR_DOMAIN/.test(SITE_URL))
   console.warn("⚠  SITE_URL is still the placeholder. Build with SITE_URL=https://your-domain.com");
+await vite.close();

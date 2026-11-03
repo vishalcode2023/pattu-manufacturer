@@ -9,17 +9,25 @@ export default function InstagramSection() {
     <section id="instagram" className="relative bg-cream py-24 sm:py-32">
       {/* Top-left nadi kamba */}
       <img
-        src="/border.png"
+        src="/border.webp"
         alt=""
         aria-hidden="true"
+        width="1055"
+        height="1491"
+        loading="lazy"
+        decoding="async"
         className="pointer-events-none absolute left-0 top-0 z-0 w-32 opacity-70 sm:w-40"
       />
 
       {/* Bottom-right nadi kamba */}
       <img
-        src="/border.png"
+        src="/border.webp"
         alt=""
         aria-hidden="true"
+        width="1055"
+        height="1491"
+        loading="lazy"
+        decoding="async"
         className="pointer-events-none absolute bottom-0 right-0 z-0 w-32 rotate-180 opacity-70 sm:w-40"
       />
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -27,7 +35,7 @@ export default function InstagramSection() {
           <SectionHeading
             eyebrow={RETAIL_COUNTER.name}
             title="See What's New at Ethnic Collections"
-            description="Follow along for the current retail collection, new arrivals and styling inspiration from the counter in Mysuru."
+            description="Follow along for the current retail collection, new arrivals and styling inspiration from Ethnic Collections."
           />
           <a
             href={CONTACT.instagramUrl}

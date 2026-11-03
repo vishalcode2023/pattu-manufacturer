@@ -87,20 +87,16 @@ export default function Manufacturing() {
                   variants={fadeUp}
                   className="mt-5 font-display font-medium text-charcoal text-balance leading-[1.05] text-4xl sm:text-5xl"
                 >
-                  Built for Boutiques and Resellers
-                  <span className="sr-only">
-                    {" "}
-                    — Pattu Pavada Manufacturing Unit in Mysuru
-                  </span>
+                  Pattu Pavada Manufacturing for India
                 </motion.h1>
 
                 <motion.p
                   variants={fadeUp}
                   className="mt-6 max-w-md font-body text-base text-charcoal/65 leading-relaxed"
                 >
-                  From loom to label, every step happens under one roof, giving
-                  boutiques and resellers a manufacturing partner they can
-                  actually build a business on.
+                  We make pattu pavada,
+                  pattu pavadai, pattu langa and langa blouse sets for boutiques
+                  and resellers across India and worldwide.
                 </motion.p>
 
                 <motion.div variants={fadeUp}>
@@ -122,6 +118,10 @@ export default function Manufacturing() {
               src={HERO.image.src}
               alt={HERO.image.alt}
               className="absolute inset-0 w-full h-full object-cover grayscale-[10%] saturate-[0.92] contrast-[1.05]"
+              width="970"
+              height="736"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/35 to-transparent" />
             <div className="absolute inset-0 flex items-end">
@@ -165,6 +165,10 @@ export default function Manufacturing() {
                       src={f.image.src}
                       alt={f.image.alt}
                       className="absolute inset-0 w-full h-full object-cover grayscale-[15%] saturate-[0.9] contrast-[1.05]"
+                      width="970"
+                      height="736"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </motion.div>
 
@@ -212,6 +216,10 @@ export default function Manufacturing() {
                   src={CLOSING.image.src}
                   alt={CLOSING.image.alt}
                   className="absolute inset-0 w-full h-full object-cover grayscale-[15%] saturate-[0.9] contrast-[1.05]"
+                  width="1200"
+                  height="1000"
+                  loading="lazy"
+                  decoding="async"
                 />
               </motion.div>
 

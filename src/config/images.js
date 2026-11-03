@@ -1,59 +1,56 @@
 // ---------------------------------------------------------------------------
 // IMAGE CONFIGURATION
-// Every image on the site is referenced from this file so the placeholder
-// photography below can be swapped for real manufacturing / product
-// photography in one place. Nothing here depicts a real named person,
-// garment, or facility — these are neutral placeholder sources only.
-// Replace each URL with your own photography before launch.
+// Shared image references for manufacturing, product and content sections.
 // ---------------------------------------------------------------------------
-
-const ph = (seed, w = 1200, h = 1500) =>
-  `https://picsum.photos/seed/${seed}/${w}/${h}`;
 
 export const IMAGES = {
   hero: {
-    src: ph("pattu-hero-main", 1600, 2000),
-    alt: "Artisan hands finishing the gold zari border of a traditional silk Pattu Pavada",
+    src: "/Landing_Page.avif",
+    alt: "Girl wearing a red pattu pavada at a traditional South Indian temple",
   },
   heroSecondary: {
-    src: ph("pattu-hero-detail", 900, 1100),
-    alt: "Close-up of hand embroidery detailing on a South Indian silk langa",
+    src: "/img13.avif",
+    alt: "Close-up of traditional zari and thread detailing on a pattu langa",
   },
   brandIntro: {
-    src: ph("pattu-brand-intro", 1200, 1400),
-    alt: "Rows of finished Pattu Langa and Pattu Pavada garments ready for dispatch",
+    src: "/img12.avif",
+    alt: "Gold zari thread embroidery detail on traditional South Indian silk",
   },
   regional: {
     karnataka: {
       src: "/img1.avif",
-      alt: "Traditional Uddalanga langa blouse set styled in the Karnataka tradition",
+      alt: "Traditional Karnataka Uddalanga pattu langa set with blouse",
     },
 
     andhraTelangana: {
       src: "/img2.avif",
-      alt: "Pattu Langa crafted in the Andhra Pradesh and Telangana style",
+      alt: "Girls' pattu langa skirt and blouse in the Andhra Pradesh and Telangana style",
     },
 
     tamilNadu: {
       src: "/img3.avif",
-      alt: "Pattu Pavada designed in the Tamil Nadu tradition with silk pleats",
+      alt: "Tamil Nadu pattu pavada and pattu pavadai with traditional silk pleats",
     },
   },
   collections: {
     pattuPavada: {
       src: "/EC_Reel_5.mp4",
+      poster: "/ET_03_A.avif",
       alt: "Traditional silk Pattu Pavada with detailed zari border craftsmanship",
     },
     pattuLanga: {
       src: "/EC_Reel_7.mp4",
+      poster: "/ET_01_A.avif",
       alt: "Elegant Pattu Langa designed for South Indian celebrations and special occasions",
     },
     langaBlouse: {
       src: "/EC_Reel_8.mp4",
+      poster: "/ET_04_A.avif",
       alt: "Hand-finished Langa Blouse with traditional embroidery detailing",
     },
     uddalanga: {
       src: "/EC_Reel_5.mp4",
+      poster: "/ET_02_A.avif",
       alt: "Traditional Karnataka-inspired Uddalanga ethnic wear set",
     },
   },
@@ -101,50 +98,50 @@ export const IMAGES = {
       alt: "Traditional hand-embroidery technique being applied to a garment border",
     },
     tertiary: {
-      src: "/img14.png",
+      src: "/img14.webp",
       alt: "Detailed view of fine stitching and fabric quality on a finished piece",
     },
   },
   globalSupply: {
-    src: ph("global-supply-map", 1600, 1000),
-    alt: "Packages of South Indian ethnic wear prepared for worldwide dispatch",
+    src: "/whole2.avif",
+    alt: "South Indian pattu pavada and pattu langa styles offered for wholesale supply",
   },
   businessCustomers: {
-    src: ph("business-customers", 1200, 1000),
-    alt: "Boutique owner reviewing a wholesale collection of ethnic wear",
+    src: "/whole3.avif",
+    alt: "Pattu pavada and pattu langa designs for boutique buyers",
   },
   retailCounter: {
-    src: ph("retail-counter-ethnic-collections", 1100, 1300),
-    alt: "Interior of the Ethnic Collections retail counter in Mysuru",
+    src: "/img1.avif",
+    alt: "Traditional Uddalanga pattu langa set with blouse",
   },
   instagram: [
     {
-      src: ph("insta-1", 500, 500),
+      src: "/ET_01_A.avif",
       alt: "Retail collection highlight from Ethnic Collections, Mysuru",
     },
     {
-      src: ph("insta-2", 500, 500),
+      src: "/ET_01_B.avif",
       alt: "Styled Pattu Langa set from the current retail collection",
     },
     {
-      src: ph("insta-3", 500, 500),
+      src: "/ET_02_A.avif",
       alt: "Close-up of embroidery detail shared on Instagram",
     },
     {
-      src: ph("insta-4", 500, 500),
+      src: "/ET_02_B.avif",
       alt: "New arrival Pattu Pavada showcased at Ethnic Collections",
     },
     {
-      src: ph("insta-5", 500, 500),
+      src: "/ET_03_A.avif",
       alt: "Behind-the-scenes look at garment finishing",
     },
     {
-      src: ph("insta-6", 500, 500),
+      src: "/ET_03_B.avif",
       alt: "Customer-ready ethnic wear display at the retail counter",
     },
   ],
   finalCta: {
-    src: ph("final-cta-garment", 1600, 900),
+    src: "/whole2.avif",
     alt: "Collection of finished Pattu Langa garments arranged for a manufacturer showcase",
   },
 };

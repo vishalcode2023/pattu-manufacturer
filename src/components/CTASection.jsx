@@ -13,7 +13,10 @@ export default function CTASection() {
           src={IMAGES.finalCta.src}
           alt={IMAGES.finalCta.alt}
           className="w-full h-full object-cover"
+          width="1600"
+          height="900"
           loading="lazy"
+          decoding="async"
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-wine-dark/80 via-wine-dark to-wine-dark" />

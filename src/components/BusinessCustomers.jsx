@@ -17,10 +17,13 @@ export default function BusinessCustomers() {
           />
           <div className="relative mt-10 hidden lg:block h-72 overflow-hidden">
             <img
-              src="/img12.avif"
+              src={IMAGES.businessCustomers.src}
               alt={IMAGES.businessCustomers.alt}
               className="w-full h-full object-cover"
+              width="1122"
+              height="1402"
               loading="lazy"
+              decoding="async"
             />
           </div>
           <a

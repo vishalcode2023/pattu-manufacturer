@@ -5,6 +5,7 @@ import { MessageCircle, ArrowUpRight, Phone } from "lucide-react";
 import { Eyebrow, ZariDivider } from "./Decorative";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { CONTACT, RETAIL_COUNTER } from "../config/site";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -18,7 +19,7 @@ const fadeUp = {
   },
 };
 
-const WHATSAPP_NUMBER = "919916760001";
+const WHATSAPP_NUMBER = CONTACT.whatsappNumber;
 
 const WHATSAPP_MESSAGE =
   "Hello, I would like to know more about your products and bulk orders.";
@@ -31,6 +32,9 @@ const PHONES = [
 ];
 
 export default function ContactSection() {
+  const mapQuery = encodeURIComponent(
+    `${RETAIL_COUNTER.name}, ${RETAIL_COUNTER.addressLines.join(" ")}`,
+  );
   const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     WHATSAPP_MESSAGE,
   )}`;
@@ -58,10 +62,14 @@ export default function ContactSection() {
           ===================================================== */}
 
           <img
-            src="/border.png"
+            src="/border.webp"
             alt=""
             aria-hidden="true"
             className="pointer-events-none absolute top-25 left-0 z-0 w-32 opacity-70 sm:w-40"
+            width="1055"
+            height="1491"
+            loading="lazy"
+            decoding="async"
           />
 
           {/* =====================================================
@@ -69,10 +77,14 @@ export default function ContactSection() {
           ===================================================== */}
 
           <img
-            src="/border.png"
+            src="/border.webp"
             alt=""
             aria-hidden="true"
             className="pointer-events-none absolute bottom-0 right-0 z-0 w-32 rotate-180 opacity-70 sm:w-40"
+            width="1055"
+            height="1491"
+            loading="lazy"
+            decoding="async"
           />
 
           {/* =====================================================
@@ -97,20 +109,15 @@ export default function ContactSection() {
               <Eyebrow>Get In Touch</Eyebrow>
 
               <h1 className="mt-5 font-display font-medium text-charcoal text-balance leading-[1.05] text-4xl sm:text-5xl">
-                Place a Bulk Order,
-                <br />
-                Or Just Say Hello.
-                <span className="sr-only">
-                  {" "}
-                  — Contact Pattu Pavada &amp; Pattu Langa Manufacturer in Mysuru
-                </span>
+                Pattu Pavada Manufacturer Serving India
               </h1>
 
               <ZariDivider className="max-w-[140px] mt-8" />
 
               <p className="mt-8 max-w-md font-body text-base sm:text-lg leading-relaxed text-brown">
-                Looking for premium products in bulk or simply want to know more
-                about us? Connect with our team directly on WhatsApp.
+                Looking for pattu pavada, pattu pavadai or pattu langa for girls,
+                or wholesale supply? Visit our Mysuru, Karnataka counter or
+                contact our team for delivery across India.
               </p>
 
               {/* Phone Numbers */}
@@ -128,6 +135,12 @@ export default function ContactSection() {
                   </li>
                 ))}
               </ul>
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="mt-5 inline-block font-body text-sm text-wine underline"
+              >
+                {CONTACT.email}
+              </a>
             </motion.div>
 
             {/* ===================================================
@@ -196,6 +209,24 @@ export default function ContactSection() {
                 </p>
               </div>
             </motion.div>
+          </div>
+          <div className="relative z-10 mx-auto mt-16 max-w-7xl px-5 sm:px-8">
+            <h2 className="font-display text-2xl text-charcoal sm:text-3xl">
+              Visit Ethnic Collections in Mysuru, Karnataka
+            </h2>
+            <address className="mt-3 not-italic font-body leading-7 text-brown">
+              {RETAIL_COUNTER.name},{" "}
+              {RETAIL_COUNTER.addressLines.join(" ")}
+            </address>
+            <iframe
+              title="Map to Ethnic Collections, Jayalakshmipuram, Mysuru"
+              src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+              width="100%"
+              height="400"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="mt-6 border-0"
+            />
           </div>
         </section>
       </div>

@@ -41,6 +41,13 @@ export default function Seo() {
 
   useEffect(() => {
     const seo = getRouteSeo(path);
+    if (!seo) {
+      document.title = "Page not found | Pattu Pavadas";
+      setMeta("name", "robots", "noindex, follow");
+      document.head.querySelector('link[rel="canonical"]')?.remove();
+      return;
+    }
+
     const url = absUrl(path);
     const image = absAsset(seo.image || DEFAULT_OG_IMAGE);
 

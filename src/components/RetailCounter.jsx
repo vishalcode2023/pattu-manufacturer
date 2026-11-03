@@ -27,6 +27,11 @@ export default function RetailCounter() {
         >
           <img
             src="/img1.avif"
+            alt="Traditional pattu pavada and pattu langa styles available at the Mysuru retail counter"
+            width="1023"
+            height="1537"
+            loading="lazy"
+            decoding="async"
             className="w-full h-[420px] sm:h-[800px] object-cover"
           />
         </motion.div>
@@ -44,9 +49,9 @@ export default function RetailCounter() {
           </h2>
           <ZariDivider className="max-w-[140px] mt-8" />
           <p className="mt-8 font-body text-base sm:text-lg text-charcoal/75 leading-relaxed max-w-lg">
-            Looking for a single piece rather than a bulk order? Our retail
-            counter, {RETAIL_COUNTER.name}, welcomes individual customers for
-            direct assistance and product viewing.
+            Looking for pattu pavada for girls or a single pattu langa rather
+            than a bulk order? Our {RETAIL_COUNTER.name} retail counter in
+            Mysuru, Karnataka welcomes individual customers.
           </p>
 
           <div className="mt-8 flex items-start gap-3 text-charcoal/85 font-body text-sm sm:text-base">

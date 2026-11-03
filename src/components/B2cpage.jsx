@@ -14,6 +14,7 @@ import {
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import LazyVideo from "./LazyVideo";
 import { Eyebrow, SectionHeading, ZariDivider } from "../components/Decorative";
 
 import { getWhatsAppLink } from "../config/site";
@@ -270,7 +271,11 @@ export default function B2CPage() {
                   ease: "easeOut",
                 },
               }}
-              fetchPriority={heroImage === 0 ? "high" : "auto"}
+              width="1200"
+              height="1600"
+              decoding="async"
+              loading={heroImage === 0 ? "eager" : "lazy"}
+              fetchPriority={heroImage === 0 ? "high" : undefined}
             />
           </AnimatePresence>
 
@@ -398,13 +403,9 @@ export default function B2CPage() {
               }}
               className="mt-5 sm:mt-6 font-display font-medium text-cream leading-[1.02] text-balance text-4xl sm:text-6xl lg:text-7xl"
             >
-              Dress Her in
+              Pattu Pavada
               <br />
-              <span className="text-gold-light">Pure Tradition.</span>
-            <span className="sr-only">
-                {" "}
-                — Buy Pattu Pavada &amp; Pattu Langa for Girls Direct from the Manufacturer
-              </span>
+              <span className="text-gold-light">for Girls</span>
             </motion.h1>
 
             <motion.p
@@ -422,9 +423,9 @@ export default function B2CPage() {
               }}
               className="mt-5 sm:mt-7 font-body text-cream/85 text-sm sm:text-lg leading-relaxed max-w-xl"
             >
-              Handcrafted Pattu Pavada, Pattu Langa and Langa Blouse sets — made
-              with traditional craftsmanship in Mysuru, delivered straight to
-              your door across India and worldwide.
+              Pattu pavada, also called pattu pavadai, paavadai or pattu langa,
+              Explore festive girls' styles and ask
+              about sizes and delivery across India.
             </motion.p>
 
             <motion.div
@@ -526,7 +527,10 @@ export default function B2CPage() {
                     src={product.image}
                     alt={product.title}
                     className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                    width="1080"
+                    height="1350"
                     loading="lazy"
+                    decoding="async"
                   />
 
                   {/* Tag */}
@@ -647,6 +651,10 @@ export default function B2CPage() {
             alt=""
             className="w-full h-full object-cover"
             aria-hidden="true"
+            width="1122"
+            height="1402"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -741,17 +749,13 @@ export default function B2CPage() {
             }}
           >
             <div className="relative h-[480px] overflow-hidden">
-              <video
+              <LazyVideo
                 className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-hidden="true"
-              >
-                <source src="/56.mp4" type="video/mp4" />
-              </video>
+                poster="/img12.avif"
+                width={1200}
+                height={1600}
+                src="/56.mp4"
+              />
             </div>
 
             <div className="absolute -bottom-6 -right-6 hidden sm:block w-32 h-32 border border-gold/60" />
@@ -795,7 +799,7 @@ export default function B2CPage() {
               </p>
 
               <p>
-                Every piece is made in our facility in Mysuru, inspected for
+                Every piece is made in our facility, inspected for
                 quality, and dispatched with care. You're getting manufacturer
                 quality, not reseller stock.
               </p>
@@ -830,10 +834,14 @@ export default function B2CPage() {
       <section className="relative bg-[#F6F1E7] py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img
-            src="/img14.png"
+            src="/img14.webp"
             alt=""
             className="w-full h-full object-cover"
             aria-hidden="true"
+            width="1122"
+            height="1402"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

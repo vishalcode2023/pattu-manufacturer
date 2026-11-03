@@ -22,9 +22,13 @@ export default function RegionalNames() {
       ===================================================== */}
 
       <img
-        src="/border.png"
+        src="/border.webp"
         alt=""
         aria-hidden="true"
+        width="1055"
+        height="1491"
+        loading="lazy"
+        decoding="async"
         className="pointer-events-none absolute top-[0px] left-0 z-0 w-32 opacity-70 sm:w-40"
       />
 
@@ -33,9 +37,13 @@ export default function RegionalNames() {
       ===================================================== */}
 
       <img
-        src="/border.png"
+        src="/border.webp"
         alt=""
         aria-hidden="true"
+        width="1055"
+        height="1491"
+        loading="lazy"
+        decoding="async"
         className="pointer-events-none absolute bottom-0 right-0 z-0 w-32 opacity-70 sm:w-40"
       />
 
@@ -84,7 +92,10 @@ export default function RegionalNames() {
                   src={regionImages[i].src}
                   alt={regionImages[i].alt}
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  width="1122"
+                  height="1402"
                   loading="lazy"
+                  decoding="async"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 to-transparent" />

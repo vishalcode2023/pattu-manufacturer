@@ -60,10 +60,10 @@ export const RETAIL_COUNTER = {
     "1 & 2, Sri Kuvempu Vidhyavardhaka Trust,",
     "Kalidasa Road,",
     "Jayalakshmipuram,",
-    "Mysore, Karnataka",
+    "Mysuru, Karnataka 570012, India",
   ],
 
-  city: "Mysore",
+  city: "Mysuru",
   state: "Karnataka",
   country: "India",
 };

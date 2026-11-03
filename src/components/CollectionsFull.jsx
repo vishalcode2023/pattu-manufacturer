@@ -59,8 +59,8 @@ export default function CollectionsFull() {
             <SectionHeading
               eyebrow="Full Catalogue"
               as="h1"
-              title="Every Pattu Pavada & Langa Collection We Manufacture"
-              description="Browse our full range — each collection is available for bulk supply with custom sizing and fabric options."
+              title="Pattu Langa & Pattu Pavada Collection"
+              description="Explore pattu pavada, pattu pavadai and pattu langa styles for customers across India. Ask about availability and wholesale supply."
             />
 
             {/* ===================================================
@@ -169,4 +169,3 @@ export default function CollectionsFull() {
     </>
   );
 }
-

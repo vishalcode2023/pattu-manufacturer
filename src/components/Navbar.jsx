@@ -77,6 +77,9 @@ export default function Navbar({ variant = "dark" }) {
             alt=""
             aria-hidden="true"
             className="w-12 h-12 lg:w-18 lg:h-18 object-contain shrink-0"
+            width="127"
+            height="127"
+            decoding="async"
           />
 
           {/* Brand Name */}
@@ -187,4 +190,3 @@ export default function Navbar({ variant = "dark" }) {
     </header>
   );
 }
-

@@ -46,7 +46,10 @@ export default function ManufacturingSection() {
                       src={image.src}
                       alt={image.alt}
                       className="w-full h-full object-cover"
+                      width="970"
+                      height="736"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <h3 className="font-display text-xl text-cream">
@@ -93,7 +96,10 @@ export default function ManufacturingSection() {
                       src={image.src}
                       alt={image.alt}
                       className="w-full h-full object-cover"
+                      width="970"
+                      height="736"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <p className="font-body text-sm text-cream/65 leading-relaxed">

@@ -38,9 +38,13 @@ export function ZariDivider({ className = "", tone = "gold" }) {
       aria-hidden="true"
     >
       <img
-        src="/zari-divider-transparent.png"
+        src="/zari-divider-transparent.webp"
         alt=""
         className="block w-full h-auto object-contain"
+        width="2172"
+        height="724"
+        loading="lazy"
+        decoding="async"
       />
     </div>
   );

@@ -50,7 +50,7 @@ export default function GlobalSupplySection() {
           Global Supply
         </Eyebrow>
         <h2 className="mt-5 font-display font-medium text-cream text-balance leading-[1.05] text-4xl sm:text-5xl lg:text-6xl">
-          From Mysuru to the World
+          Across India and Around the World
         </h2>
         <ZariDivider className="max-w-[140px] mx-auto mt-8" />
         <p className="mt-8 mx-auto max-w-2xl font-body text-base sm:text-lg text-cream/80 leading-relaxed">

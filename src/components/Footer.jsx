@@ -63,12 +63,22 @@ export default function Footer() {
           <ul className="space-y-3 font-body text-sm">
             <li>
               <Link to="/b2b" className="hover:text-wine transition-colors">
-                Wholesale (B2B)
+                Pattu Pavada Wholesale
               </Link>
             </li>
             <li>
               <Link to="/b2c" className="hover:text-wine transition-colors">
-                Shop Direct (B2C)
+                Pattu Pavada for Girls
+              </Link>
+            </li>
+            <li>
+              <Link to="/collection" className="hover:text-wine transition-colors">
+                Pattu Langa Collection
+              </Link>
+            </li>
+            <li>
+              <Link to="/manufacturing" className="hover:text-wine transition-colors">
+                Pattu Pavada Manufacturing
               </Link>
             </li>
             <li>
@@ -151,5 +161,4 @@ export default function Footer() {
     </footer>
   );
 }
-
 

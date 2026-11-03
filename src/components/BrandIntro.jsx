@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { IMAGES } from "../config/images";
 import { Eyebrow, ZariDivider } from "./Decorative";
+import LazyVideo from "./LazyVideo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -19,18 +19,26 @@ export default function BrandIntro() {
     <section id="brand-intro" className="relative bg-ivory py-24 sm:py-32">
       {/* Top-left nadi kamba */}
       <img
-        src="/border.png"
+        src="/border.webp"
         alt=""
         aria-hidden="true"
         className="pointer-events-none absolute left-0 top-0 z-0 w-32 opacity-70 sm:w-40"
+        width="1055"
+        height="1491"
+        loading="lazy"
+        decoding="async"
       />
 
       {/* Bottom-right nadi kamba */}
       <img
-        src="/border.png"
+        src="/border.webp"
         alt=""
         aria-hidden="true"
         className="pointer-events-none absolute bottom-0 right-0 z-0 w-32 opacity-70 sm:w-40"
+        width="1055"
+        height="1491"
+        loading="lazy"
+        decoding="async"
       />
       <div className="mx-auto max-w-7xl px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <motion.div
@@ -41,18 +49,13 @@ export default function BrandIntro() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <div className="relative overflow-hidden rounded-sm">
-            <video
+            <LazyVideo
               className="w-full h-[520px] sm:h-[520px] object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              poster={IMAGES.brandIntro.src}
-            >
-              <source src="/g2.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+              poster="/img12.avif"
+              width={1280}
+              height={1920}
+              src="/g2.mp4"
+            />
           </div>
 
           <div className="absolute -bottom-6 -right-6 hidden sm:block w-32 h-32 border border-gold/60" />

@@ -3,23 +3,32 @@ import { ArrowUpRight } from "lucide-react";
 import { IMAGES } from "../config/images";
 import { COLLECTIONS } from "../data/content";
 import { SectionHeading } from "./Decorative";
+import LazyVideo from "./LazyVideo";
 
 export default function ProductCategories() {
   return (
     <section id="collections" className="relative bg-ivory py-24 sm:py-32">
       {/* Top-left nadi kamba */}
       <img
-        src="/border.png"
+        src="/border.webp"
         alt=""
         aria-hidden="true"
+        width="1055"
+        height="1491"
+        loading="lazy"
+        decoding="async"
         className="pointer-events-none absolute left-0 top-0 z-0 w-32 opacity-70 sm:w-40"
       />
 
       {/* Bottom-right nadi kamba */}
       <img
-        src="/border.png"
+        src="/border.webp"
         alt=""
         aria-hidden="true"
+        width="1055"
+        height="1491"
+        loading="lazy"
+        decoding="async"
         className="pointer-events-none absolute bottom-0 right-0 z-0 w-32 rotate-180 opacity-70 sm:w-40"
       />
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -48,15 +57,12 @@ export default function ProductCategories() {
               >
                 <div className="relative h-[420px] sm:h-[480px] overflow-hidden">
                   {/* VIDEO */}
-                  <video
+                  <LazyVideo
                     src={image.src}
                     poster={image.poster}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
+                    width={1200}
+                    height={1600}
                   />
 
                   {/* Overlay */}

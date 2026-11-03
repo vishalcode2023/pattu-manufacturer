@@ -21,17 +21,25 @@ export default function CraftsmanshipSection() {
     <section id="craftsmanship" className="relative bg-ivory py-24 sm:py-32">
       {/* Top-left nadi kamba */}
       <img
-        src="/border.png"
+        src="/border.webp"
         alt=""
         aria-hidden="true"
+        width="1055"
+        height="1491"
+        loading="lazy"
+        decoding="async"
         className="pointer-events-none absolute left-0 top-0 z-0 w-32 opacity-70 sm:w-40"
       />
 
       {/* Bottom-right nadi kamba */}
       <img
-        src="/border.png"
+        src="/border.webp"
         alt=""
         aria-hidden="true"
+        width="1055"
+        height="1491"
+        loading="lazy"
+        decoding="async"
         className="pointer-events-none absolute bottom-0 right-0 z-0 w-32  opacity-70 sm:w-40"
       />
       <div className="mx-auto max-w-7xl px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
@@ -47,7 +55,10 @@ export default function CraftsmanshipSection() {
               src={IMAGES.craftsmanship.primary.src}
               alt={IMAGES.craftsmanship.primary.alt}
               className="w-full h-full object-cover"
+              width="1122"
+              height="1402"
               loading="lazy"
+              decoding="async"
             />
           </motion.div>
           <motion.div
@@ -62,7 +73,10 @@ export default function CraftsmanshipSection() {
               src={IMAGES.craftsmanship.secondary.src}
               alt={IMAGES.craftsmanship.secondary.alt}
               className="w-full h-full object-cover"
+              width="1122"
+              height="1120"
               loading="lazy"
+              decoding="async"
             />
           </motion.div>
           <motion.div
@@ -77,7 +91,10 @@ export default function CraftsmanshipSection() {
               src={IMAGES.craftsmanship.tertiary.src}
               alt={IMAGES.craftsmanship.tertiary.alt}
               className="w-full h-full object-cover"
+              width="1122"
+              height="1402"
               loading="lazy"
+              decoding="async"
             />
           </motion.div>
         </div>
