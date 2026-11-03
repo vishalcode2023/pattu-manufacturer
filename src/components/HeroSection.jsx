@@ -7,9 +7,18 @@ import { Eyebrow } from "./Decorative";
 
 // Hero slider images
 const heroImages = [
-  "/Landing_Page.avif",
-  "/Landing_Page_2.avif",
-  "/Landing_Page_3.avif",
+  {
+    desktop: "/Landing_Page.avif",
+    mobile: "/Landing_Pagemob.avif",
+  },
+  {
+    desktop: "/Landing_Page_2.avif",
+    mobile: "/Landing_Pagemob1.avif",
+  },
+  {
+    desktop: "/Landing_Page_3.avif",
+    mobile: "/Landing_Pagemob2.avif",
+  },
 ];
 
 const SLIDE_DURATION = 5000; // 5 seconds per image
@@ -19,9 +28,10 @@ export default function HeroSection() {
 
   // Preload images
   useEffect(() => {
-    heroImages.forEach((src) => {
+    const isMobile = window.matchMedia("(max-width: 639px)").matches;
+    heroImages.forEach(({ desktop, mobile }) => {
       const img = new Image();
-      img.src = src;
+      img.src = isMobile ? mobile : desktop;
     });
   }, []);
 
@@ -43,9 +53,9 @@ export default function HeroSection() {
     >
       {/* ================= BACKGROUND SLIDER ================= */}
       <div className="absolute inset-0">
-        {heroImages.map((src, i) => (
+        {heroImages.map(({ desktop, mobile }, i) => (
           <motion.div
-            key={src}
+            key={desktop}
             className="absolute inset-0"
             initial={false}
             animate={{
@@ -66,13 +76,16 @@ export default function HeroSection() {
               zIndex: i === activeIndex ? 1 : 0,
             }}
           >
-            <img
-              src={src}
-              alt={IMAGES.hero.alt}
-              className="w-full h-full object-cover object-center max-sm:object-[30%_center]"
-              fetchPriority={i === 0 ? "high" : "auto"}
-              loading={i === 0 ? "eager" : "lazy"}
-            />
+            <picture className="block h-full w-full">
+              <source media="(max-width: 639px)" srcSet={mobile} />
+              <img
+                src={desktop}
+                alt={IMAGES.hero.alt}
+                className="w-full h-full object-cover object-center"
+                fetchPriority={i === 0 ? "high" : "auto"}
+                loading={i === 0 ? "eager" : "lazy"}
+              />
+            </picture>
           </motion.div>
         ))}
 
@@ -148,8 +161,8 @@ export default function HeroSection() {
       </motion.div>
 
       {/* ================= HERO CONTENT ================= */}
-      <div className="relative z-10 w-full mx-auto max-w-7xl px-5 sm:px-8 pb-16 sm:pb-20 pt-40">
-        <div className="max-w-3xl -translate-y-12 sm:-translate-y-25">
+      <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-8 pb-14 sm:pb-20 pt-32 sm:pt-40">
+        <div className="max-w-3xl -translate-y-8 sm:-translate-y-25">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -159,7 +172,9 @@ export default function HeroSection() {
               duration: 0.7,
             }}
           >
-            <Eyebrow tone="gold">South Indian Ethnic Wear Manufacturer</Eyebrow>
+            <Eyebrow tone="gold" className="max-sm:tracking-[0.12em]">
+              South Indian Ethnic Wear Manufacturer
+            </Eyebrow>
           </motion.div>
 
           {/* Heading */}
@@ -171,7 +186,7 @@ export default function HeroSection() {
               duration: 0.8,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="mt-10 sm:mt-16 font-display font-medium text-cream leading-[1.02] text-balance text-3xl sm:text-5xl lg:text-6xl xl:text-6xl"
+            className="mt-7 sm:mt-16 font-display font-medium text-cream leading-[1.02] text-balance text-2xl sm:text-5xl lg:text-6xl xl:text-6xl"
           >
             Crafted in Tradition
             <br />
@@ -190,7 +205,7 @@ export default function HeroSection() {
               delay: 0.75,
               duration: 0.7,
             }}
-            className="mt-5 sm:mt-7 font-body text-cream/85 text-sm sm:text-lg leading-relaxed max-w-xl"
+            className="mt-4 sm:mt-7 font-body text-cream/85 text-[13px] sm:text-lg leading-relaxed max-w-xl"
           >
             Premium Pattu Pavada, Pattu Langa &amp; Blouses, crafted in Mysuru
             for India and the world.
@@ -204,12 +219,12 @@ export default function HeroSection() {
               delay: 0.95,
               duration: 0.7,
             }}
-            className="mt-7 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4"
+            className="mt-6 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
             {/* Manufacturing Button */}
             <a
               href="/contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-sm bg-gold-light text-wine-dark px-6 sm:px-8 py-3 sm:py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream transition-colors"
+              className="group inline-flex items-center justify-center gap-2 rounded-sm bg-gold-light text-wine-dark px-5 sm:px-8 py-3 sm:py-4 font-body text-xs sm:text-sm font-semibold tracking-wide hover:bg-cream transition-colors"
             >
               Explore Our Manufacturing
               <ArrowRight
@@ -225,7 +240,7 @@ export default function HeroSection() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-sm border border-cream/50 text-cream px-6 sm:px-8 py-3 sm:py-4 font-body text-sm font-semibold tracking-wide hover:bg-cream/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-sm border border-cream/50 text-cream px-5 sm:px-8 py-3 sm:py-4 font-body text-xs sm:text-sm font-semibold tracking-wide hover:bg-cream/10 transition-colors"
             >
               Partner With Us
             </a>
