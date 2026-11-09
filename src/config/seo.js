@@ -364,15 +364,6 @@ export const organizationSchema = () => ({
     "Kids ethnic wear",
     "Wholesale ethnic wear",
   ],
-  makesOffer: [
-    "Pattu Pavada",
-    "Pattu Langa",
-    "Langa Blouse",
-    "Uddalanga / Langa Davani",
-  ].map((name) => ({
-    "@type": "Offer",
-    itemOffered: { "@type": "Product", name },
-  })),
 });
 
 export const websiteSchema = () => ({
@@ -406,27 +397,68 @@ export const faqSchema = (faqs = FAQS) => ({
   })),
 });
 
-export const productListSchema = () => ({
+export const categoryCollectionSchema = (path) => ({
   "@context": "https://schema.org",
-  "@type": "ItemList",
+  "@type": "CollectionPage",
+  url: absUrl(path),
   name: "Pattu Pavada & Pattu Langa Collection",
-  itemListElement: [
-    ["Pattu Pavada", "Traditional silk-look pavada with zari border for girls"],
-    ["Pattu Langa", "Pattu langa with coordinating langa blouse for festive wear"],
-    ["Langa Blouse", "Matching and contrast blouses for pattu pavada and langa sets"],
-    ["Uddalanga / Langa Davani", "Langa set with davani (half-saree style) drape"],
-  ].map(([name, description], i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    item: {
-      "@type": "Product",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: [
+      ["Pattu Pavada", "Traditional silk-look pavada with zari border for girls"],
+      ["Pattu Langa", "Pattu langa with coordinating langa blouse for festive wear"],
+      ["Langa Blouse", "Matching and contrast blouses for pattu pavada and langa sets"],
+      ["Uddalanga / Langa Davani", "Langa set with davani (half-saree style) drape"],
+    ].map(([name, description], i) => ({
+      "@type": "ListItem",
+      position: i + 1,
       name,
       description,
-      brand: { "@type": "Brand", name: SITE_NAME },
-      image: absAsset(DEFAULT_OG_IMAGE),
-    },
-  })),
+    })),
+  },
 });
+
+// Use only for an individual product with verified, visible details and price.
+// This builder is intentionally not used for the site's category listings.
+export const individualProductSchema = ({
+  name,
+  description,
+  image,
+  url,
+  price,
+  priceCurrency,
+  availability,
+}) => {
+  if (
+    !name ||
+    !description ||
+    !image ||
+    !url ||
+    !Number.isFinite(price) ||
+    price <= 0 ||
+    !priceCurrency
+  ) {
+    throw new Error(
+      "Individual Product schema requires visible product details and a verified price.",
+    );
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name,
+    description,
+    image,
+    url,
+    offers: {
+      "@type": "Offer",
+      url,
+      price,
+      priceCurrency,
+      ...(availability ? { availability } : {}),
+    },
+  };
+};
 
 export const articleSchema = (path = "/blog") => ({
   "@context": "https://schema.org",
@@ -437,11 +469,7 @@ export const articleSchema = (path = "/blog") => ({
   image: absAsset("/img13.avif"),
   inLanguage: "en-IN",
   author: { "@id": `${SITE_URL}/#organization` },
-  publisher: {
-    "@type": "Organization",
-    name: SITE_NAME,
-    logo: { "@type": "ImageObject", url: absAsset(LOGO) },
-  },
+  publisher: { "@id": `${SITE_URL}/#organization` },
 });
 
 // All JSON-LD blocks for a route
@@ -449,8 +477,10 @@ export function schemasFor(path) {
   const r = getRouteSeo(path);
   const out = [organizationSchema(), websiteSchema()];
   if (r.breadcrumb && r.breadcrumb.length > 1) out.push(breadcrumbSchema(r.breadcrumb));
-  if (path === "/") out.push(faqSchema(), productListSchema());
-  if (path === "/collection" || path === "/b2c" || path === "/b2b") out.push(productListSchema());
+  if (path === "/") out.push(faqSchema(), categoryCollectionSchema(path));
+  if (path === "/collection" || path === "/b2c" || path === "/b2b") {
+    out.push(categoryCollectionSchema(path));
+  }
   if (r.article) {
     out.push(articleSchema(path));
     out.push(faqSchema(r.article.faqs));
