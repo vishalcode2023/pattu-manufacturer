@@ -12,7 +12,7 @@ export const BRAND_TAGLINE =
 export const SITE_URL = (
   (typeof import.meta !== "undefined" && import.meta.env?.VITE_SITE_URL) ||
   (typeof process !== "undefined" && process.env?.SITE_URL) ||
-  "https://pattupavadas.com"
+  "https://www.pattupavadas.com"
 ).replace(/\/+$/, "");
 
 // ---------------------------------------------------------------------------
