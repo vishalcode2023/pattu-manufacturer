@@ -18,7 +18,7 @@ npm run build
 
 ## Site configuration
 
-The live site URL defaults to `https://pattupavadas.com` in
+The live site URL defaults to `https://www.pattupavadas.com` in
 `src/config/site.js`. Override it with `VITE_SITE_URL` for the client build or
 `SITE_URL` when generating the prerendered SEO pages and sitemap.
 

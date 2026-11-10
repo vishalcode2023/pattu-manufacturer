@@ -1,9 +1,9 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pattupavadas.com/sitemap.xml
+Sitemap: https://www.pattupavadas.com/sitemap.xml
 
 # LLM site guide
-# https://pattupavadas.com/llms.txt
+# https://www.pattupavadas.com/llms.txt
 # AI catalog
-# https://pattupavadas.com/.well-known/ai-catalog.json
+# https://www.pattupavadas.com/.well-known/ai-catalog.json

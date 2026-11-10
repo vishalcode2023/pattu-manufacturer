@@ -32,7 +32,7 @@ JPEG format for reliable social previews.
 
 ## Go-live checklist
 
-1. The canonical host is `https://pattupavadas.com`; `SITE_URL` or
+1. The canonical host is `https://www.pattupavadas.com`; `SITE_URL` or
    `VITE_SITE_URL` can override it for another deployment.
 2. Verify the business coordinates in `src/config/seo.js` and provide verified
    opening hours before adding `openingHoursSpecification`. Hours are currently
@@ -40,7 +40,7 @@ JPEG format for reliable social previews.
 3. Configure the production host to permanently redirect `www.pattupavadas.com`
    to `pattupavadas.com`, serve the prerendered route folders and return
    `dist/404.html` for unknown paths.
-4. Submit `https://pattupavadas.com/sitemap.xml` in Google Search Console and
+4. Submit `https://www.pattupavadas.com/sitemap.xml` in Google Search Console and
    Bing Webmaster Tools.
 5. Create or claim the Google Business Profile and match its public name,
    address and main phone to the website.
